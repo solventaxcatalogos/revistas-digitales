@@ -33,8 +33,8 @@
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
         @keyframes sun-glow {
-            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 12px rgba(254, 240, 138, 0.7)); }
-            50% { transform: scale(1.05); filter: drop-shadow(0 0 20px rgba(251, 146, 60, 0.9)); }
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 16px rgba(254, 240, 138, 0.8)); }
+            50% { transform: scale(1.08); filter: drop-shadow(0 0 24px rgba(251, 146, 60, 0.95)); }
         }
         .animate-sun {
             animation: sun-glow 4s ease-in-out infinite;
@@ -43,14 +43,14 @@
 </head>
 <body class="min-h-screen flex flex-col sunset-glow">
 
-    <!-- Encabezado Principal con Sol -->
-    <header class="bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400 text-white py-12 px-4 shadow-lg relative overflow-hidden">
+    <!-- Encabezado Principal con Sol Más Grande y Visible -->
+    <header class="bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400 text-white py-14 px-4 shadow-lg relative overflow-hidden">
         <div class="container mx-auto text-center flex flex-col items-center justify-center">
-            <div class="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center animate-sun mb-4">
+            <div class="w-24 h-24 md:w-28 md:h-28 flex items-center justify-center animate-sun mb-4">
                 <svg viewBox="0 0 100 100" class="w-full h-full fill-amber-100">
-                    <circle cx="50" cy="50" r="22" class="fill-yellow-300"></circle>
-                    <path d="M50,8 L50,20 M50,80 L50,92 M8,50 L20,50 M80,50 L92,50 M20,20 L29,29 M71,71 L80,80 M20,80 L29,71 M71,29 L80,20" stroke="#fef08a" stroke-width="6" stroke-linecap="round"></path>
-                    <path d="M50,14 L50,18 M50,82 L50,86 M14,50 L18,50 M82,50 L86,50 M24,24 L27,27 M73,73 L76,76 M24,80 L27,77 M73,27 L76,24" stroke="#f97316" stroke-width="4" stroke-linecap="round"></path>
+                    <circle cx="50" cy="50" r="24" class="fill-yellow-300"></circle>
+                    <path d="M50,6 L50,20 M50,80 L50,94 M6,50 L20,50 M80,50 L94,50 M18,18 L28,28 M72,72 L82,82 M18,82 L28,72 M72,28 L82,18" stroke="#fef08a" stroke-width="6" stroke-linecap="round"></path>
+                    <path d="M50,12 L50,17 M50,83 L50,88 M12,50 L17,50 M83,50 L88,50 M22,22 L25,25 M75,75 L78,78 M22,78 L25,75 M75,25 L78,22" stroke="#f97316" stroke-width="4" stroke-linecap="round"></path>
                 </svg>
             </div>
             <h1 class="text-5xl md:text-7xl font-bold tracking-tight brand-title text-white">Sol</h1>
@@ -58,7 +58,7 @@
         </div>
     </header>
 
-    <!-- Instrucciones Rápidas (Limpio y Sutil) -->
+    <!-- Instrucciones Rápidas -->
     <section class="container mx-auto px-4 py-8 max-w-4xl">
         <div class="bg-white/80 border border-orange-100 rounded-3xl p-6 shadow-sm backdrop-blur-sm">
             <h3 class="font-bold text-orange-900 mb-4 text-center text-sm md:text-base">¿Cómo hacer tu pedido?</h3>
@@ -82,7 +82,7 @@
         </div>
     </main>
 
-    <!-- Pie de Página -->
+    <!-- Pie de Página Optimizado -->
     <footer class="bg-white border-t border-orange-100 py-12 text-center">
         <div class="brand-title text-3xl text-orange-400 font-bold mb-2">Sol</div>
         <p class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-8 italic">Trayectoria y confianza desde 2004</p>
@@ -90,18 +90,18 @@
         <div class="inline-block p-6 rounded-3xl bg-slate-50 border border-slate-100 shadow-sm w-11/12 md:w-auto max-w-md">
             <h5 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Medios de Pago</h5>
             <div class="flex justify-center gap-6 text-2xl text-slate-400 mb-4">
-                <i class="fas fa-mobile-screen-button" title="Nequi / Ahorros"></i>
-                <i class="fas fa-key" title="Daviplata / Llave"></i>
+                <i class="fas fa-mobile-screen-button" title="Nequi / Llave"></i>
+                <i class="fas fa-key" title="Llaves / Bre-B"></i>
                 <i class="fas fa-hand-holding-usd" title="Efectivo"></i>
-                <i class="fas fa-wallet" title="Pago Flexible"></i>
+                <i class="fas fa-handshake" title="Acuerdos con Asesor"></i>
             </div>
             <p id="paymentTextDisplay" class="text-xs text-slate-600 font-medium">Nequi / Llave: 300 591 9059</p>
-            <p id="paymentFlexDisplay" class="text-xs text-slate-500 mt-1">Pago flexible: Efectivo o transferencia (Acordado con asesor)</p>
+            <p id="paymentFlexDisplay" class="text-xs text-slate-500 mt-1">Pagos y envíos flexibles acordados con asesor.</p>
         </div>
 
         <div class="mt-8">
             <button id="toggleAdminBtn" class="text-xs text-slate-400 hover:text-orange-500 transition-colors font-medium bg-slate-100 px-4 py-2 rounded-full border border-slate-200/60 inline-flex items-center gap-2">
-                <i class="fas fa-lock"></i> Gestionar Kiosco (Solo tú)
+                <i class="fas fa-lock"></i> Gestionar Kiosco
             </button>
         </div>
     </footer>
@@ -112,63 +112,71 @@
         <span class="font-semibold">Pedido</span>
     </a>
 
-    <!-- Botón Flotante Asistente Sol IA -->
-    <button id="aiFloatingBtn" class="fixed bottom-6 left-6 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-4 py-3 rounded-full shadow-lg z-40 transition-all hover:scale-105 active:scale-95 flex items-center gap-2 text-sm">
-        <i class="fas fa-sparkles text-yellow-200"></i>
-        <span class="font-semibold">Sol IA Asistente</span>
+    <!-- Botón Flotante de Ayuda Rápida -->
+    <button id="helpFloatingBtn" class="fixed bottom-6 left-6 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-4 py-3 rounded-full shadow-lg z-40 transition-all hover:scale-105 active:scale-95 flex items-center gap-2 text-sm">
+        <i class="fas fa-question-circle text-yellow-200"></i>
+        <span class="font-semibold">💡 ¿Necesitas Ayuda?</span>
     </button>
 
-    <!-- Ventana de Chat con Sol IA -->
-    <div id="aiChatWindow" class="hidden fixed bottom-24 left-6 w-[90%] sm:w-[380px] h-[480px] max-h-[80vh] bg-white border border-orange-100 rounded-3xl shadow-2xl z-50 flex flex-col overflow-hidden transition-all duration-300">
+    <!-- Centro de Ayuda (Preguntas Frecuentes Ajustadas) -->
+    <div id="helpModalWindow" class="hidden fixed bottom-24 left-6 w-[90%] sm:w-[380px] max-h-[80vh] bg-white border border-orange-100 rounded-3xl shadow-2xl z-50 flex flex-col overflow-hidden transition-all duration-300">
         <div class="bg-gradient-to-r from-amber-400 to-orange-500 p-4 text-white flex justify-between items-center shadow-md">
             <div class="flex items-center gap-2">
                 <div class="bg-white/20 p-2 rounded-xl">
-                    <i class="fas fa-sparkles text-yellow-200"></i>
+                    <i class="fas fa-book-open text-yellow-200"></i>
                 </div>
                 <div>
-                    <h4 class="font-bold text-sm">Asistente Virtual Sol</h4>
-                    <p class="text-[9px] text-orange-100">Consultas de catálogos y armado de pedidos</p>
+                    <h4 class="font-bold text-sm">Centro de Ayuda Sol</h4>
+                    <p class="text-[9px] text-orange-100">Información sobre pedidos, pagos y campañas</p>
                 </div>
             </div>
-            <button id="closeAiChatBtn" class="text-white hover:text-orange-200 transition-colors p-1">
+            <button id="closeHelpModalBtn" class="text-white hover:text-orange-200 transition-colors p-1">
                 <i class="fas fa-times text-xl"></i>
             </button>
         </div>
 
-        <div id="aiChatBody" class="flex-grow p-4 overflow-y-auto space-y-3 bg-orange-50/10 text-xs">
-            <div class="bg-white border border-orange-50 p-3 rounded-2xl rounded-tl-none max-w-[85%] shadow-sm text-slate-700">
-                ¡Hola! Soy tu asistente de compras de <strong>Sol - Venta por Catálogo</strong>. ☀️<br><br>
-                ¿En qué puedo colaborarte hoy?
-                <ul class="list-disc pl-4 mt-2 space-y-1 text-slate-600">
-                    <li>Recomendar catálogos o marcas.</li>
-                    <li>Sugerir productos de moda o cosméticos.</li>
-                    <li>Organizar tu lista de pedido para enviar por WhatsApp.</li>
-                </ul>
+        <div class="p-4 overflow-y-auto space-y-3 bg-orange-50/10 text-xs">
+            <div class="bg-white border border-orange-50 p-3 rounded-2xl text-slate-700 shadow-sm">
+                <p class="font-bold text-orange-600 mb-1"><i class="fas fa-sun mr-1"></i> ¡Bienvenid@ a Sol Catálogos!</p>
+                Toca cualquiera de las siguientes preguntas para resolver tus dudas:
+            </div>
+
+            <!-- Pregunta 1 -->
+            <button onclick="showHelpAnswer(1)" class="w-full text-left bg-white hover:bg-orange-50 border border-orange-100 p-3 rounded-2xl shadow-sm text-slate-700 font-medium transition flex items-center justify-between">
+                <span>🛍️ ¿Cómo hago y envío mi pedido?</span>
+                <i class="fas fa-chevron-down text-orange-400 text-[10px]"></i>
+            </button>
+            <div id="answer-1" class="hidden bg-orange-50/60 p-3 rounded-2xl text-slate-600 text-[11px] border border-orange-100 space-y-1">
+                <p>1. Entra a la revista que te guste haciendo clic en su portada.</p>
+                <p>2. Toma captura de pantalla a los productos que deseas.</p>
+                <p>3. Envía tus capturas por WhatsApp usando el botón verde de <strong>Pedido</strong>.</p>
+            </div>
+
+            <!-- Pregunta 2 -->
+            <button onclick="showHelpAnswer(2)" class="w-full text-left bg-white hover:bg-orange-50 border border-orange-100 p-3 rounded-2xl shadow-sm text-slate-700 font-medium transition flex items-center justify-between">
+                <span>⏰ ¿Qué pasa si una campaña dice "Cerrada"?</span>
+                <i class="fas fa-chevron-down text-orange-400 text-[10px]"></i>
+            </button>
+            <div id="answer-2" class="hidden bg-orange-50/60 p-3 rounded-2xl text-slate-600 text-[11px] border border-orange-100">
+                Indica que el plazo de esa edición ya venció. Solo debes esperar a que tu asesora publique la nueva campaña y el catálogo se habilitará de nuevo automáticamente. ¡Explora las demás marcas activas!
+            </div>
+
+            <!-- Pregunta 3 (Pagos y Acuerdos) -->
+            <button onclick="showHelpAnswer(3)" class="w-full text-left bg-white hover:bg-orange-50 border border-orange-100 p-3 rounded-2xl shadow-sm text-slate-700 font-medium transition flex items-center justify-between">
+                <span>💳 ¿Cómo funcionan los pagos y envíos?</span>
+                <i class="fas fa-chevron-down text-orange-400 text-[10px]"></i>
+            </button>
+            <div id="answer-3" class="hidden bg-orange-50/60 p-3 rounded-2xl text-slate-600 text-[11px] border border-orange-100 space-y-1">
+                <p>• Puedes cancelar mediante transferencias (Nequi / Llave / Bre-B).</p>
+                <p>• Los plazos de pago, entregas y formas de envío son <strong>acordados flexiblemente con tu asesora</strong> al enviar tu pedido por WhatsApp.</p>
             </div>
         </div>
 
-        <div id="aiChatLoading" class="hidden px-4 py-2 flex items-center gap-1.5 text-[10px] text-slate-400 bg-white font-medium">
-            <i class="fas fa-circle-notch animate-spin text-orange-500"></i> Sol IA está buscando ideas...
+        <div class="p-3 border-t border-orange-100 bg-white text-center">
+            <a href="https://wa.me/573005919059?text=%C2%A1Hola!%20Tengo%20una%20consulta%20sobre%20los%20cat%C3%A1logos." target="_blank" class="block bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition shadow">
+                <i class="fab fa-whatsapp mr-1 text-sm"></i> ¿Necesitas hablar con la asesora?
+            </a>
         </div>
-
-        <div class="p-2 border-t border-orange-50 bg-white overflow-x-auto whitespace-nowrap hide-scrollbar flex gap-2">
-            <button onclick="sendQuickQuestion('¿Qué catálogo tiene ropa de moda actual o deportiva?')" class="bg-orange-50 hover:bg-orange-100 text-orange-700 text-[10px] font-bold px-3 py-1.5 rounded-full transition-colors flex-shrink-0">
-                ✨ ¿Ropa de moda?
-            </button>
-            <button onclick="sendQuickQuestion('Recomiéndame fragancias o maquillaje de Yanbal, Avon o Esika')" class="bg-orange-50 hover:bg-orange-100 text-orange-700 text-[10px] font-bold px-3 py-1.5 rounded-full transition-colors flex-shrink-0">
-                ✨ Cosméticos y perfumes
-            </button>
-            <button onclick="sendQuickQuestion('Ayúdame a organizar un pedido de catálogo en una lista limpia')" class="bg-orange-50 hover:bg-orange-100 text-orange-700 text-[10px] font-bold px-3 py-1.5 rounded-full transition-colors flex-shrink-0">
-                ✨ Organizar mi pedido
-            </button>
-        </div>
-
-        <form id="aiChatForm" class="p-3 border-t border-orange-100 bg-white flex gap-2">
-            <input type="text" id="aiChatInput" required placeholder="Hazme una pregunta sobre las revistas..." class="flex-grow px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700 placeholder-slate-400 focus:outline-none focus:border-orange-400 focus:bg-white transition-all">
-            <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white p-2.5 rounded-xl transition-colors flex items-center justify-center">
-                <i class="fas fa-paper-plane text-xs"></i>
-            </button>
-        </form>
     </div>
 
     <!-- Modal de Contraseña -->
@@ -220,7 +228,7 @@
                             <input type="text" id="adminPaymentText" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-orange-500">
                         </div>
                         <div>
-                            <label class="block text-[10px] font-semibold text-slate-400 mb-1.5 uppercase">Texto Pago Flexible</label>
+                            <label class="block text-[10px] font-semibold text-slate-400 mb-1.5 uppercase">Texto Envíos y Pagos</label>
                             <input type="text" id="adminPaymentFlex" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-orange-500">
                         </div>
                         <div>
@@ -421,18 +429,16 @@
             }
         ];
 
-        // --- CONTRASEÑA POR DEFECTO CONFIGURADA: Sol2004 ---
         const defaultSettings = {
             "phone": "573005919059",
             "paymentText": "Nequi / Llave: 300 591 9059",
-            "paymentFlex": "Pago flexible: Efectivo o transferencia (Acordado con asesor)",
+            "paymentFlex": "Pagos y envíos flexibles acordados con asesor.",
             "pass": "Sol2004"
         };
 
         let magazines = defaultMagazines;
         let settings = defaultSettings;
         let deleteTargetId = null;
-        const apiKey = ""; 
 
         // --- 2. SISTEMA DE ORDENAMIENTO Y DETECCIÓN DE CAMPAÑAS VENCIDAS ---
         const monthOrder = {
@@ -449,7 +455,7 @@
                 const month = monthOrder[parts[2]];
                 if (month !== undefined) {
                     const year = new Date().getFullYear();
-                    return new Date(year, month, day, 23, 59, 59); // Final del día de cierre
+                    return new Date(year, month, day, 23, 59, 59);
                 }
             }
             return null;
@@ -481,7 +487,7 @@
         function sortByDeadlineManually() {
             sortMagazinesByDeadline();
             updateAllViews();
-            showNotification('¡Revistas ordenadas por fecha de cierre (más próximas primero)!', 'success');
+            showNotification('¡Revistas ordenadas por fecha de cierre!', 'success');
         }
 
         // --- 3. ELEMENTOS DEL DOM ---
@@ -505,13 +511,9 @@
         const acceptConfirmBtn = document.getElementById('acceptConfirmBtn');
         const cancelConfirmBtn = document.getElementById('cancelConfirmBtn');
 
-        const aiFloatingBtn = document.getElementById('aiFloatingBtn');
-        const aiChatWindow = document.getElementById('aiChatWindow');
-        const closeAiChatBtn = document.getElementById('closeAiChatBtn');
-        const aiChatForm = document.getElementById('aiChatForm');
-        const aiChatInput = document.getElementById('aiChatInput');
-        const aiChatBody = document.getElementById('aiChatBody');
-        const aiChatLoading = document.getElementById('aiChatLoading');
+        const helpFloatingBtn = document.getElementById('helpFloatingBtn');
+        const helpModalWindow = document.getElementById('helpModalWindow');
+        const closeHelpModalBtn = document.getElementById('closeHelpModalBtn');
 
         const passwordModal = document.getElementById('passwordModal');
         const adminPasswordInput = document.getElementById('adminPasswordInput');
@@ -728,7 +730,27 @@
             }, 3000);
         }
 
-        // Control de Contraseña con Sol2004
+        // Control de Despliegue de Preguntas Frecuentes
+        function showHelpAnswer(id) {
+            const ans = document.getElementById(`answer-${id}`);
+            if (ans.classList.contains('hidden')) {
+                ans.classList.remove('hidden');
+            } else {
+                ans.classList.add('hidden');
+            }
+        }
+
+        helpFloatingBtn.addEventListener('click', () => {
+            helpModalWindow.classList.remove('hidden');
+            setTimeout(() => helpModalWindow.classList.remove('opacity-0'), 10);
+        });
+
+        closeHelpModalBtn.addEventListener('click', () => {
+            helpModalWindow.classList.add('opacity-0');
+            setTimeout(() => helpModalWindow.classList.add('hidden'), 300);
+        });
+
+        // Control de Contraseña
         toggleAdminBtn.addEventListener('click', () => {
             passwordModal.classList.remove('hidden');
             setTimeout(() => passwordModal.classList.remove('opacity-0'), 10);
@@ -767,146 +789,6 @@
             adminPanel.classList.add('opacity-0'); 
             setTimeout(() => adminPanel.classList.add('hidden'), 300); 
         });
-
-        // --- 6. ASISTENTE SOL IA (GEMINI) ---
-        async function fetchWithBackoff(url, options, maxRetries = 5) {
-            let delay = 1000;
-            for (let i = 0; i < maxRetries; i++) {
-                try {
-                    const response = await fetch(url, options);
-                    if (response.ok) return response;
-                    if (response.status !== 429 && response.status < 500) {
-                        throw new Error(`HTTP Error: ${response.status}`);
-                    }
-                } catch (e) {
-                    if (i === maxRetries - 1) throw e;
-                }
-                await new Promise(resolve => setTimeout(resolve, delay));
-                delay *= 2;
-            }
-            throw new Error("Failed after retries");
-        }
-
-        async function sendQueryToGemini(userQuery) {
-            const magazinesListText = magazines.map(m => `- ${m.name} (Cierre: ${m.deadline}) ${m.link !== '#' ? '[Ver Catálogo](' + m.link + ')' : ''}`).join('\n');
-            const systemPrompt = `Eres el asistente inteligente de compras del Kiosco Virtual "Sol" de venta por catálogo.
-Tu objetivo es ayudar amablemente a los clientes a encontrar catálogos ideales, recomendar marcas y organizar sus pedidos para enviarlos por WhatsApp.
-
-Aquí tienes la lista actual de nuestros catálogos activos y sus cierres ordenados cronológicamente:
-${magazinesListText}
-
-Medios de pago autorizados:
-- ${settings.paymentText}
-- ${settings.paymentFlex}
-
-Instrucciones:
-1. Sé muy amable, alegre y cordial (como una asesora de confianza). Usa emojis de Sol y estrellas (☀️, ✨, 🛍️).
-2. Si te piden organizar un pedido, genera un formato limpio de lista para copiar fácilmente.
-3. Recuerda resaltar a los clientes las marcas que cierran más pronto para que no se queden sin sus pedidos.
-4. Responde en español de forma concisa.`;
-
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-            const payload = {
-                contents: [{ parts: [{ text: userQuery }] }],
-                systemInstruction: { parts: [{ text: systemPrompt }] }
-            };
-
-            const response = await fetchWithBackoff(url, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload)
-            });
-
-            const result = await response.json();
-            return result.candidates?.[0]?.content?.parts?.[0]?.text || "Disculpa, no logré procesar tu consulta en este momento. Inténtalo de nuevo.";
-        }
-
-        aiFloatingBtn.addEventListener('click', () => {
-            aiChatWindow.classList.remove('hidden');
-            setTimeout(() => {
-                aiChatWindow.classList.remove('opacity-0');
-            }, 10);
-        });
-
-        closeAiChatBtn.addEventListener('click', () => {
-            aiChatWindow.classList.add('opacity-0');
-            setTimeout(() => {
-                aiChatWindow.classList.add('hidden');
-            }, 300);
-        });
-
-        async function handleUserChatMessage(messageText) {
-            if (!messageText.trim()) return;
-
-            const userMsgDiv = document.createElement('div');
-            userMsgDiv.className = "bg-orange-500 text-white p-3 rounded-2xl rounded-tr-none max-w-[85%] ml-auto shadow-sm self-end";
-            userMsgDiv.textContent = messageText;
-            aiChatBody.appendChild(userMsgDiv);
-            aiChatBody.scrollTop = aiChatBody.scrollHeight;
-
-            aiChatLoading.classList.remove('hidden');
-
-            try {
-                const responseText = await sendQueryToGemini(messageText);
-                
-                const aiMsgDiv = document.createElement('div');
-                aiMsgDiv.className = "bg-white border border-orange-50 p-3 rounded-2xl rounded-tl-none max-w-[85%] shadow-sm text-slate-700 whitespace-pre-line";
-                aiMsgDiv.innerHTML = responseText;
-                aiChatBody.appendChild(aiMsgDiv);
-            } catch (error) {
-                const errorDiv = document.createElement('div');
-                errorDiv.className = "bg-rose-50 border border-rose-200 p-3 rounded-2xl text-rose-700";
-                errorDiv.textContent = "Hubo un problema de conexión con la IA. Asegúrate de estar conectado a Internet e inténtalo de nuevo.";
-                aiChatBody.appendChild(errorDiv);
-            } finally {
-                aiChatLoading.classList.add('hidden');
-                aiChatBody.scrollTop = aiChatBody.scrollHeight;
-            }
-        }
-
-        aiChatForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const messageText = aiChatInput.value;
-            aiChatInput.value = '';
-            handleUserChatMessage(messageText);
-        });
-
-        function sendQuickQuestion(questionText) {
-            handleUserChatMessage(questionText);
-        }
-
-        // --- 7. DESCARGA DEL ARCHIVO INDEX.HTML PARA GITHUB ---
-        function downloadUpdatedTemplate() {
-            try {
-                let docClone = document.documentElement.cloneNode(true);
-                
-                const cloneAdmin = docClone.querySelector('#adminPanel');
-                if (cloneAdmin) cloneAdmin.className = "hidden fixed top-0 left-0 w-full h-full bg-slate-950/80 backdrop-blur-sm text-white z-50 flex items-center justify-center p-2 md:p-4 transform transition-opacity duration-300 opacity-0";
-                
-                const clonePass = docClone.querySelector('#passwordModal');
-                if (clonePass) clonePass.className = "hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[90] flex items-center justify-center p-4 transition-opacity duration-200 opacity-0";
-
-                const cloneAi = docClone.querySelector('#aiChatWindow');
-                if (cloneAi) cloneAi.className = "hidden fixed bottom-24 left-6 w-[90%] sm:w-[380px] h-[480px] max-h-[80vh] bg-white border border-orange-100 rounded-3xl shadow-2xl z-50 flex flex-col overflow-hidden transition-all duration-300";
-
-                let htmlContent = "<!DOCTYPE html>\n<html lang=\"es\">\n" + docClone.outerHTML + "\n</html>";
-
-                const magazinesJson = JSON.stringify(magazines, null, 12);
-                htmlContent = htmlContent.replace(/const defaultMagazines\s*=\s*\[[\s\S]*?\];/g, `const defaultMagazines = ${magazinesJson};`);
-
-                const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
-                const link = document.createElement('a');
-                link.href = URL.createObjectURL(blob);
-                link.download = 'index.html';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                
-                showNotification('¡Archivo index.html descargado! Listo para subir a GitHub.', 'success');
-            } catch (error) {
-                showNotification('Ocurrió un inconveniente al generar tu archivo.', 'error');
-            }
-        }
 
         // Inicialización
         document.addEventListener('DOMContentLoaded', () => {
