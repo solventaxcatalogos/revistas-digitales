@@ -439,6 +439,7 @@
         let magazines = defaultMagazines;
         let settings = defaultSettings;
         let deleteTargetId = null;
+        const apiKey = ""; 
 
         // --- 2. SISTEMA DE ORDENAMIENTO Y DETECCIÓN DE CAMPAÑAS VENCIDAS ---
         const monthOrder = {
@@ -773,7 +774,7 @@
                 adminPasswordInput.value = '';
                 
                 adminPanel.classList.remove('hidden'); 
-                setTimeout(() => adminPanel.classList.remove('opacity-0'), 10); 
+                setTimeout(() => adminPanel.classList.0('opacity-0') || adminPanel.classList.remove('opacity-0'), 10); 
             } else {
                 showNotification('Contraseña incorrecta', 'error');
                 adminPasswordInput.value = '';
