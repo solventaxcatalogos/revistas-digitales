@@ -65,7 +65,7 @@
             <div class="grid grid-cols-3 gap-2 text-center text-[10px] md:text-xs text-slate-600">
                 <div class="p-2"><i class="fas fa-mouse-pointer block text-orange-500 mb-1.5 text-base md:text-lg"></i> Elige catálogo</div>
                 <div class="p-2"><i class="fas fa-camera block text-orange-500 mb-1.5 text-base md:text-lg"></i> Toma captura</div>
-                <div class="p-2"><i class="fab fa-whatsapp block text-emerald-500 mb-1.5 text-base md:text-lg"></i> Envía por WhatsApp</div>
+                <div class="p-2"><i class="fab fa-whatsapp block text-emerald-500 mb-1.5 text-base md:text-lg"></i> Envía al asesor</div>
             </div>
         </div>
     </section>
@@ -106,12 +106,6 @@
         </div>
     </footer>
 
-    <!-- Botón Flotante WhatsApp Pedidos -->
-    <a id="whatsappFloatingBtn" href="https://wa.me/573005919059?text=%C2%A1Hola!%20Te%20env%C3%ADo%20mi%20pedido%20para%20el%20cat%C3%A1logo." target="_blank" class="fixed bottom-6 right-6 bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-3 rounded-full shadow-lg z-40 transition-all hover:scale-105 active:scale-95 flex items-center gap-2 text-sm">
-        <i class="fab fa-whatsapp text-lg"></i>
-        <span class="font-semibold">Pedido</span>
-    </a>
-
     <!-- Botón Flotante de Ayuda Rápida -->
     <button id="helpFloatingBtn" class="fixed bottom-6 left-6 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-4 py-3 rounded-full shadow-lg z-40 transition-all hover:scale-105 active:scale-95 flex items-center gap-2 text-sm">
         <i class="fas fa-question-circle text-yellow-200"></i>
@@ -149,7 +143,7 @@
             <div id="answer-1" class="hidden bg-orange-50/60 p-3 rounded-2xl text-slate-600 text-[11px] border border-orange-100 space-y-1">
                 <p>1. Entra a la revista que te guste haciendo clic en su portada.</p>
                 <p>2. Toma captura de pantalla a los productos que deseas.</p>
-                <p>3. Envía tus capturas por WhatsApp usando el botón verde de <strong>Pedido</strong>.</p>
+                <p>3. Envía tus capturas directamente a tu asesora asignada.</p>
             </div>
 
             <!-- Pregunta 2 -->
@@ -168,14 +162,8 @@
             </button>
             <div id="answer-3" class="hidden bg-orange-50/60 p-3 rounded-2xl text-slate-600 text-[11px] border border-orange-100 space-y-1">
                 <p>• Puedes cancelar mediante transferencias (Nequi / Llave / Bre-B).</p>
-                <p>• Los plazos de pago, entregas y formas de envío son <strong>acordados flexiblemente con tu asesora</strong> al enviar tu pedido por WhatsApp.</p>
+                <p>• Los plazos de pago, entregas y formas de envío son <strong>acordados flexiblemente con tu asesora</strong> al momento de confirmar tu pedido.</p>
             </div>
-        </div>
-
-        <div class="p-3 border-t border-orange-100 bg-white text-center">
-            <a href="https://wa.me/573005919059?text=%C2%A1Hola!%20Tengo%20una%20consulta%20sobre%20los%20cat%C3%A1logos." target="_blank" class="block bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition shadow">
-                <i class="fab fa-whatsapp mr-1 text-sm"></i> ¿Necesitas hablar con la asesora?
-            </a>
         </div>
     </div>
 
@@ -505,7 +493,6 @@
         const adminPassSettings = document.getElementById('adminPassSettings');
         const paymentTextDisplay = document.getElementById('paymentTextDisplay');
         const paymentFlexDisplay = document.getElementById('paymentFlexDisplay');
-        const whatsappFloatingBtn = document.getElementById('whatsappFloatingBtn');
 
         const confirmModal = document.getElementById('confirmModal');
         const confirmTargetName = document.getElementById('confirmTargetName');
@@ -617,9 +604,6 @@
         function renderSettings() {
             paymentTextDisplay.textContent = settings.paymentText;
             paymentFlexDisplay.textContent = settings.paymentFlex;
-
-            const msg = encodeURIComponent("¡Hola! Te envío mi pedido para el catálogo.");
-            whatsappFloatingBtn.href = `https://wa.me/${settings.phone}?text=${msg}`;
 
             adminPhone.value = settings.phone;
             adminPaymentText.value = settings.paymentText;
