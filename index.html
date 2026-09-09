@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+<html lang="es"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sol - Venta por Catálogo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js" crossorigin="anonymous"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #fffbf7; color: #334155; }
         .brand-title { font-family: 'Playfair Display', serif; }
         .sunset-glow { background: radial-gradient(circle at 50% -20%, rgba(251, 146, 60, 0.08) 0%, rgba(255, 251, 247, 0) 70%); }
         
-        /* Formato alargado tipo revista física */
         .magazine-card { 
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
             height: 350px; 
@@ -39,11 +38,20 @@
         .animate-sun {
             animation: sun-glow 4s ease-in-out infinite;
         }
+
+        /* Animación suave palpitante para la etiqueta de ¡NUEVA! */
+        @keyframes badge-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+        .animate-badge {
+            animation: badge-pulse 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
     </style>
-</head>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.bottom-24{bottom:6rem}.bottom-6{bottom:1.5rem}.left-0{left:0px}.right-4{right:1rem}.right-6{right:1.5rem}.top-0{top:0px}.-top-2{top:-0.5rem}.left-2{left:0.5rem}.bottom-4{bottom:1rem}.right-3{right:0.75rem}.top-3{top:0.75rem}.z-40{z-index:40}.z-50{z-index:50}.z-\[80\]{z-index:80}.z-\[90\]{z-index:90}.z-20{z-index:20}.z-\[70\]{z-index:70}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-1\.5{margin-bottom:0.375rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mr-1\.5{margin-right:0.375rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-3{margin-top:0.75rem}.mt-8{margin-top:2rem}.line-clamp-2{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-12{height:3rem}.h-24{height:6rem}.h-full{height:100%}.max-h-\[45vh\]{max-height:45vh}.max-h-\[80vh\]{max-height:80vh}.max-h-\[95vh\]{max-height:95vh}.min-h-screen{min-height:100vh}.min-h-\[44px\]{min-height:44px}.w-10{width:2.5rem}.w-11\/12{width:91.666667%}.w-12{width:3rem}.w-24{width:6rem}.w-\[92\%\]{width:92%}.w-full{width:100%}.max-w-4xl{max-width:56rem}.max-w-6xl{max-width:72rem}.max-w-7xl{max-width:80rem}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.flex-grow{flex-grow:1}.translate-y-2{--tw-translate-y:0.5rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-not-allowed{cursor:not-allowed}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-start{justify-content:flex-start}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-6{gap:1.5rem}.gap-1{gap:0.25rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-\[32px\]{border-radius:32px}.rounded-md{border-radius:0.375rem}.rounded-t-3xl{border-top-left-radius:1.5rem;border-top-right-radius:1.5rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-l-4{border-left-width:4px}.border-dashed{border-style:dashed}.border-amber-300\/30{border-color:rgb(252 211 77 / 0.3)}.border-amber-500\/30{border-color:rgb(245 158 11 / 0.3)}.border-orange-100{--tw-border-opacity:1;border-color:rgb(255 237 213 / var(--tw-border-opacity, 1))}.border-orange-200{--tw-border-opacity:1;border-color:rgb(254 215 170 / var(--tw-border-opacity, 1))}.border-orange-50{--tw-border-opacity:1;border-color:rgb(255 247 237 / var(--tw-border-opacity, 1))}.border-orange-500\/40{border-color:rgb(249 115 22 / 0.4)}.border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249 / var(--tw-border-opacity, 1))}.border-slate-200\/60{border-color:rgb(226 232 240 / 0.6)}.border-slate-800{--tw-border-opacity:1;border-color:rgb(30 41 59 / var(--tw-border-opacity, 1))}.border-slate-800\/50{border-color:rgb(30 41 59 / 0.5)}.border-slate-800\/80{border-color:rgb(30 41 59 / 0.8)}.border-black\/5{border-color:rgb(0 0 0 / 0.05)}.border-amber-200\/50{border-color:rgb(253 230 138 / 0.5)}.border-emerald-500{--tw-border-opacity:1;border-color:rgb(16 185 129 / var(--tw-border-opacity, 1))}.bg-amber-500\/20{background-color:rgb(245 158 11 / 0.2)}.bg-emerald-600{--tw-bg-opacity:1;background-color:rgb(5 150 105 / var(--tw-bg-opacity, 1))}.bg-orange-50\/10{background-color:rgb(255 247 237 / 0.1)}.bg-orange-50\/60{background-color:rgb(255 247 237 / 0.6)}.bg-orange-500{--tw-bg-opacity:1;background-color:rgb(249 115 22 / var(--tw-bg-opacity, 1))}.bg-orange-500\/20{background-color:rgb(249 115 22 / 0.2)}.bg-rose-600{--tw-bg-opacity:1;background-color:rgb(225 29 72 / var(--tw-bg-opacity, 1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-slate-950{--tw-bg-opacity:1;background-color:rgb(2 6 23 / var(--tw-bg-opacity, 1))}.bg-slate-950\/20{background-color:rgb(2 6 23 / 0.2)}.bg-slate-950\/40{background-color:rgb(2 6 23 / 0.4)}.bg-slate-950\/50{background-color:rgb(2 6 23 / 0.5)}.bg-slate-950\/60{background-color:rgb(2 6 23 / 0.6)}.bg-slate-950\/80{background-color:rgb(2 6 23 / 0.8)}.bg-slate-950\/85{background-color:rgb(2 6 23 / 0.85)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/20{background-color:rgb(255 255 255 / 0.2)}.bg-white\/50{background-color:rgb(255 255 255 / 0.5)}.bg-white\/80{background-color:rgb(255 255 255 / 0.8)}.bg-pink-50{--tw-bg-opacity:1;background-color:rgb(253 242 248 / var(--tw-bg-opacity, 1))}.bg-purple-50{--tw-bg-opacity:1;background-color:rgb(250 245 255 / var(--tw-bg-opacity, 1))}.bg-slate-900\/60{background-color:rgb(15 23 42 / 0.6)}.bg-white\/90{background-color:rgb(255 255 255 / 0.9)}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-amber-400{--tw-gradient-from:#fbbf24 var(--tw-gradient-from-position);--tw-gradient-to:rgb(251 191 36 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-amber-500{--tw-gradient-from:#f59e0b var(--tw-gradient-from-position);--tw-gradient-to:rgb(245 158 11 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-orange-400{--tw-gradient-to:rgb(251 146 60 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #fb923c var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-orange-500{--tw-gradient-to:#f97316 var(--tw-gradient-to-position)}.to-rose-400{--tw-gradient-to:#fb7185 var(--tw-gradient-to-position)}.fill-amber-100{fill:#fef3c7}.fill-yellow-300{fill:#fde047}.p-1{padding:0.25rem}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-3\.5{padding:0.875rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-14{padding-top:3.5rem;padding-bottom:3.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-8{padding-top:2rem;padding-bottom:2rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.pb-16{padding-bottom:4rem}.pr-1{padding-right:0.25rem}.pb-1{padding-bottom:0.25rem}.pb-2{padding-bottom:0.5rem}.pb-3{padding-bottom:0.75rem}.pt-2\.5{padding-top:0.625rem}.text-left{text-align:left}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-5xl{font-size:3rem;line-height:1}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[9px\]{font-size:9px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-\[8px\]{font-size:8px}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-semibold{font-weight:600}.font-black{font-weight:900}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-tight{line-height:1.25}.tracking-\[0\.2em\]{letter-spacing:0.2em}.tracking-\[0\.4em\]{letter-spacing:0.4em}.tracking-tight{letter-spacing:-0.025em}.tracking-wide{letter-spacing:0.025em}.tracking-widest{letter-spacing:0.1em}.tracking-wider{letter-spacing:0.05em}.text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77 / var(--tw-text-opacity, 1))}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}.text-amber-500{--tw-text-opacity:1;color:rgb(245 158 11 / var(--tw-text-opacity, 1))}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153 / var(--tw-text-opacity, 1))}.text-emerald-500{--tw-text-opacity:1;color:rgb(16 185 129 / var(--tw-text-opacity, 1))}.text-orange-100{--tw-text-opacity:1;color:rgb(255 237 213 / var(--tw-text-opacity, 1))}.text-orange-400{--tw-text-opacity:1;color:rgb(251 146 60 / var(--tw-text-opacity, 1))}.text-orange-50{--tw-text-opacity:1;color:rgb(255 247 237 / var(--tw-text-opacity, 1))}.text-orange-500{--tw-text-opacity:1;color:rgb(249 115 22 / var(--tw-text-opacity, 1))}.text-orange-600{--tw-text-opacity:1;color:rgb(234 88 12 / var(--tw-text-opacity, 1))}.text-orange-900{--tw-text-opacity:1;color:rgb(124 45 18 / var(--tw-text-opacity, 1))}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-yellow-200{--tw-text-opacity:1;color:rgb(254 240 138 / var(--tw-text-opacity, 1))}.text-rose-400{--tw-text-opacity:1;color:rgb(251 113 133 / var(--tw-text-opacity, 1))}.text-rose-600{--tw-text-opacity:1;color:rgb(225 29 72 / var(--tw-text-opacity, 1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1))}.text-amber-600{--tw-text-opacity:1;color:rgb(217 119 6 / var(--tw-text-opacity, 1))}.opacity-0{opacity:0}.opacity-50{opacity:0.5}.opacity-75{opacity:0.75}.shadow{--tw-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.grayscale-\[30\%\]{--tw-grayscale:grayscale(30%);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-\[2px\]{--tw-backdrop-blur:blur(2px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-200{transition-duration:200ms}.duration-300{transition-duration:300ms}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:bg-amber-500\/30:hover{background-color:rgb(245 158 11 / 0.3)}.hover\:bg-emerald-500:hover{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.hover\:bg-orange-400:hover{--tw-bg-opacity:1;background-color:rgb(251 146 60 / var(--tw-bg-opacity, 1))}.hover\:bg-orange-50:hover{--tw-bg-opacity:1;background-color:rgb(255 247 237 / var(--tw-bg-opacity, 1))}.hover\:bg-rose-500:hover{--tw-bg-opacity:1;background-color:rgb(244 63 94 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-700:hover{--tw-bg-opacity:1;background-color:rgb(51 65 85 / var(--tw-bg-opacity, 1))}.hover\:from-amber-600:hover{--tw-gradient-from:#d97706 var(--tw-gradient-from-position);--tw-gradient-to:rgb(217 119 6 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.hover\:to-orange-600:hover{--tw-gradient-to:#ea580c var(--tw-gradient-to-position)}.hover\:text-orange-200:hover{--tw-text-opacity:1;color:rgb(254 215 170 / var(--tw-text-opacity, 1))}.hover\:text-orange-500:hover{--tw-text-opacity:1;color:rgb(249 115 22 / var(--tw-text-opacity, 1))}.hover\:text-rose-400:hover{--tw-text-opacity:1;color:rgb(251 113 133 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.focus\:border-orange-500:focus{--tw-border-opacity:1;border-color:rgb(249 115 22 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (min-width: 640px){.sm\:right-6{right:1.5rem}.sm\:w-\[380px\]{width:380px}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:text-xs{font-size:0.75rem;line-height:1rem}}@media (min-width: 768px){.md\:h-28{height:7rem}.md\:w-28{width:7rem}.md\:w-auto{width:auto}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:gap-6{gap:1.5rem}.md\:p-4{padding:1rem}.md\:p-6{padding:1.5rem}.md\:text-7xl{font-size:4.5rem;line-height:1}.md\:text-base{font-size:1rem;line-height:1.5rem}.md\:text-lg{font-size:1.125rem;line-height:1.75rem}.md\:text-sm{font-size:0.875rem;line-height:1.25rem}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}.md\:text-xs{font-size:0.75rem;line-height:1rem}}@media (min-width: 1024px){.lg\:w-1\/3{width:33.333333%}.lg\:w-2\/3{width:66.666667%}.lg\:grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}.lg\:flex-row{flex-direction:row}}</style></head>
 <body class="min-h-screen flex flex-col sunset-glow">
 
-    <!-- Encabezado Principal con Sol Más Grande y Visible -->
+    <!-- Encabezado Principal -->
     <header class="bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400 text-white py-14 px-4 shadow-lg relative overflow-hidden">
         <div class="container mx-auto text-center flex flex-col items-center justify-center">
             <div class="w-24 h-24 md:w-28 md:h-28 flex items-center justify-center animate-sun mb-4">
@@ -73,8 +81,220 @@
     <!-- Catálogos en Grid -->
     <main class="flex-grow container mx-auto px-4 pb-16 max-w-7xl">
         <div id="magazineGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 md:gap-6">
-            <!-- Catálogos generados dinámicamente -->
-        </div>
+                    <div onclick="window.open('https://catalogo.negocioleonisa.com/CO/CAT/c14/LEONISA_CO14_2026_PRINCIPAL/?page=1', '_blank')" data-id="3" class="magazine-card bg-purple-50 rounded-[32px] text-center shadow-sm cursor-pointer flex flex-col justify-between border border-black/5 overflow-hidden relative">
+                        
+                        <div class="flex-grow flex flex-col justify-start">
+                            <img src="https://leonisa-catalogs-assets-pro.s3.amazonaws.com/multipanel/images/2026/08/19/UmkAIEyQF9saKAWiEAan3qKoqset8nBES25erxHW.png" alt="Catálogo Leonisa" class="cover-img rounded-t-3xl shadow-inner" onerror="this.onerror=null; this.parentNode.innerHTML='&lt;div class=\'cover-img flex items-center justify-center bg-orange-100 rounded-t-3xl text-orange-400 font-bold\'&gt;&lt;i class=\'fas fa-book-open text-3xl\'&gt;&lt;/i&gt;&lt;/div&gt;'">
+                            <div class="px-2 pt-2.5 pb-1 flex items-center justify-center min-h-[44px]">
+                                <h3 class="font-extrabold text-slate-800 text-[11px] sm:text-xs leading-tight uppercase tracking-wider line-clamp-2">Leonisa</h3>
+                            </div>
+                        </div>
+                        <div class="px-3 pb-3">
+                            <div class="bg-white/90 py-1.5 rounded-full text-[10px] font-extrabold text-slate-600 uppercase tracking-widest shadow-sm">
+                                CIERRE: 14 SEP
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+                    <div onclick="window.open('https://encurtador.naturaavon.com/T5z5rtx', '_blank')" data-id="6" class="magazine-card bg-pink-50 rounded-[32px] text-center shadow-sm cursor-pointer flex flex-col justify-between border border-black/5 overflow-hidden relative">
+                        
+                        <div class="flex-grow flex flex-col justify-start">
+                            <img src="https://co.natura.digital-catalogue.com/co/2026/13/revista/ciclo-13/view/common/data/0001.webp?preventCache=1788185500__v1.0.1__t2.7.1" alt="Catálogo Natura" class="cover-img rounded-t-3xl shadow-inner" onerror="this.onerror=null; this.parentNode.innerHTML='&lt;div class=\'cover-img flex items-center justify-center bg-orange-100 rounded-t-3xl text-orange-400 font-bold\'&gt;&lt;i class=\'fas fa-book-open text-3xl\'&gt;&lt;/i&gt;&lt;/div&gt;'">
+                            <div class="px-2 pt-2.5 pb-1 flex items-center justify-center min-h-[44px]">
+                                <h3 class="font-extrabold text-slate-800 text-[11px] sm:text-xs leading-tight uppercase tracking-wider line-clamp-2">Natura</h3>
+                            </div>
+                        </div>
+                        <div class="px-3 pb-3">
+                            <div class="bg-white/90 py-1.5 rounded-full text-[10px] font-extrabold text-slate-600 uppercase tracking-widest shadow-sm">
+                                CIERRE: 14 SEP
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+                    <div onclick="window.open('https://short.natura.com/ZL0rv9P', '_blank')" data-id="7" class="magazine-card bg-purple-50 rounded-[32px] text-center shadow-sm cursor-pointer flex flex-col justify-between border border-black/5 overflow-hidden relative">
+                        
+                        <div class="flex-grow flex flex-col justify-start">
+                            <img src="https://co.natura-avon.digital-catalogue.com/co/2026/13/revista/avon-ciclo-13/view/common/data/0001.webp?preventCache=1787782093__v1.0.1__t2.7.1" alt="Catálogo Avon" class="cover-img rounded-t-3xl shadow-inner" onerror="this.onerror=null; this.parentNode.innerHTML='&lt;div class=\'cover-img flex items-center justify-center bg-orange-100 rounded-t-3xl text-orange-400 font-bold\'&gt;&lt;i class=\'fas fa-book-open text-3xl\'&gt;&lt;/i&gt;&lt;/div&gt;'">
+                            <div class="px-2 pt-2.5 pb-1 flex items-center justify-center min-h-[44px]">
+                                <h3 class="font-extrabold text-slate-800 text-[11px] sm:text-xs leading-tight uppercase tracking-wider line-clamp-2">Avon</h3>
+                            </div>
+                        </div>
+                        <div class="px-3 pb-3">
+                            <div class="bg-white/90 py-1.5 rounded-full text-[10px] font-extrabold text-slate-600 uppercase tracking-widest shadow-sm">
+                                CIERRE: 14 SEP
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+                    <div onclick="window.open('https://catalogo.somosbelcorp.com/co/SolCastrillo1/esika/pages/1', '_blank')" data-id="9" class="magazine-card bg-pink-50 rounded-[32px] text-center shadow-sm cursor-pointer flex flex-col justify-between border border-black/5 overflow-hidden relative">
+                        
+                        <div class="flex-grow flex flex-col justify-start">
+                            <img src="https://nuevasrevistas.com/revistas/co/esika/2026_catalogo_14/1.webp" alt="Catálogo Esika" class="cover-img rounded-t-3xl shadow-inner" onerror="this.onerror=null; this.parentNode.innerHTML='&lt;div class=\'cover-img flex items-center justify-center bg-orange-100 rounded-t-3xl text-orange-400 font-bold\'&gt;&lt;i class=\'fas fa-book-open text-3xl\'&gt;&lt;/i&gt;&lt;/div&gt;'">
+                            <div class="px-2 pt-2.5 pb-1 flex items-center justify-center min-h-[44px]">
+                                <h3 class="font-extrabold text-slate-800 text-[11px] sm:text-xs leading-tight uppercase tracking-wider line-clamp-2">Esika</h3>
+                            </div>
+                        </div>
+                        <div class="px-3 pb-3">
+                            <div class="bg-white/90 py-1.5 rounded-full text-[10px] font-extrabold text-slate-600 uppercase tracking-widest shadow-sm">
+                                CIERRE: 14 SEP
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+                    <div onclick="window.open('https://catalogo.somosbelcorp.com/co/SolCastrillo1/cyzone/pages/1', '_blank')" data-id="10" class="magazine-card bg-purple-50 rounded-[32px] text-center shadow-sm cursor-pointer flex flex-col justify-between border border-black/5 overflow-hidden relative">
+                        
+                        <div class="flex-grow flex flex-col justify-start">
+                            <img src="https://nuevasrevistas.com/revistas/co/cyzone/2026_catalogo_14/1.webp" alt="Catálogo Cyzone" class="cover-img rounded-t-3xl shadow-inner" onerror="this.onerror=null; this.parentNode.innerHTML='&lt;div class=\'cover-img flex items-center justify-center bg-orange-100 rounded-t-3xl text-orange-400 font-bold\'&gt;&lt;i class=\'fas fa-book-open text-3xl\'&gt;&lt;/i&gt;&lt;/div&gt;'">
+                            <div class="px-2 pt-2.5 pb-1 flex items-center justify-center min-h-[44px]">
+                                <h3 class="font-extrabold text-slate-800 text-[11px] sm:text-xs leading-tight uppercase tracking-wider line-clamp-2">Cyzone</h3>
+                            </div>
+                        </div>
+                        <div class="px-3 pb-3">
+                            <div class="bg-white/90 py-1.5 rounded-full text-[10px] font-extrabold text-slate-600 uppercase tracking-widest shadow-sm">
+                                CIERRE: 14 SEP
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+                    <div onclick="window.open('https://catalogo.somosbelcorp.com/co/SolCastrillo1/lbel/pages/1', '_blank')" data-id="11" class="magazine-card bg-pink-50 rounded-[32px] text-center shadow-sm cursor-pointer flex flex-col justify-between border border-black/5 overflow-hidden relative">
+                        
+                        <div class="flex-grow flex flex-col justify-start">
+                            <img src="https://nuevasrevistas.com/revistas/co/lbel/2026_catalogo_14/1.webp" alt="Catálogo L'Bel" class="cover-img rounded-t-3xl shadow-inner" onerror="this.onerror=null; this.parentNode.innerHTML='&lt;div class=\'cover-img flex items-center justify-center bg-orange-100 rounded-t-3xl text-orange-400 font-bold\'&gt;&lt;i class=\'fas fa-book-open text-3xl\'&gt;&lt;/i&gt;&lt;/div&gt;'">
+                            <div class="px-2 pt-2.5 pb-1 flex items-center justify-center min-h-[44px]">
+                                <h3 class="font-extrabold text-slate-800 text-[11px] sm:text-xs leading-tight uppercase tracking-wider line-clamp-2">L'Bel</h3>
+                            </div>
+                        </div>
+                        <div class="px-3 pb-3">
+                            <div class="bg-white/90 py-1.5 rounded-full text-[10px] font-extrabold text-slate-600 uppercase tracking-widest shadow-sm">
+                                CIERRE: 14 SEP
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+                    <div onclick="window.open('https://catalogo.negocioleonisa.com/CO/CAT/c14/LEONISA_CO14_2026_SHAPEWEAR/?page=1', '_blank')" data-id="1788657977047" class="magazine-card bg-purple-50 rounded-[32px] text-center shadow-sm cursor-pointer flex flex-col justify-between border border-black/5 overflow-hidden relative">
+                        
+                        <div class="flex-grow flex flex-col justify-start">
+                            <img src="https://leonisa-catalogs-assets-pro.s3.amazonaws.com/multipanel/images/2026/08/19/KeIt61uc5doyMOwSJFzdlb947ZP8Vv3Vdi5kObyt.png" alt="Catálogo LEONISA SHAPEWEAR" class="cover-img rounded-t-3xl shadow-inner" onerror="this.onerror=null; this.parentNode.innerHTML='&lt;div class=\'cover-img flex items-center justify-center bg-orange-100 rounded-t-3xl text-orange-400 font-bold\'&gt;&lt;i class=\'fas fa-book-open text-3xl\'&gt;&lt;/i&gt;&lt;/div&gt;'">
+                            <div class="px-2 pt-2.5 pb-1 flex items-center justify-center min-h-[44px]">
+                                <h3 class="font-extrabold text-slate-800 text-[11px] sm:text-xs leading-tight uppercase tracking-wider line-clamp-2">LEONISA SHAPEWEAR</h3>
+                            </div>
+                        </div>
+                        <div class="px-3 pb-3">
+                            <div class="bg-white/90 py-1.5 rounded-full text-[10px] font-extrabold text-slate-600 uppercase tracking-widest shadow-sm">
+                                CIERRE: 14 SEP
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+                    <div onclick="window.open('https://catalogo.negocioleonisa.com/CO/CAT/c14/LEONISA_CO14_2026_COMPLEMENTOS/?page=1', '_blank')" data-id="1788658075476" class="magazine-card bg-pink-50 rounded-[32px] text-center shadow-sm cursor-pointer flex flex-col justify-between border border-black/5 overflow-hidden relative">
+                        
+                        <div class="flex-grow flex flex-col justify-start">
+                            <img src="https://leonisa-catalogs-assets-pro.s3.amazonaws.com/multipanel/images/2026/08/19/wWmyFtMggunIVV9kSsS0L52tHLBCDhx86AFSXGpr.png" alt="Catálogo LEONISA COMPLEMENTOS" class="cover-img rounded-t-3xl shadow-inner" onerror="this.onerror=null; this.parentNode.innerHTML='&lt;div class=\'cover-img flex items-center justify-center bg-orange-100 rounded-t-3xl text-orange-400 font-bold\'&gt;&lt;i class=\'fas fa-book-open text-3xl\'&gt;&lt;/i&gt;&lt;/div&gt;'">
+                            <div class="px-2 pt-2.5 pb-1 flex items-center justify-center min-h-[44px]">
+                                <h3 class="font-extrabold text-slate-800 text-[11px] sm:text-xs leading-tight uppercase tracking-wider line-clamp-2">LEONISA COMPLEMENTOS</h3>
+                            </div>
+                        </div>
+                        <div class="px-3 pb-3">
+                            <div class="bg-white/90 py-1.5 rounded-full text-[10px] font-extrabold text-slate-600 uppercase tracking-widest shadow-sm">
+                                CIERRE: 14 SEP
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+                    <div onclick="window.open('https://catalogo.negocioleonisa.com/CO/CAT/c14/LEONISA_CO14_2026_ALIADOS/?page=1', '_blank')" data-id="1788658125975" class="magazine-card bg-purple-50 rounded-[32px] text-center shadow-sm cursor-pointer flex flex-col justify-between border border-black/5 overflow-hidden relative">
+                        
+                        <div class="flex-grow flex flex-col justify-start">
+                            <img src="https://leonisa-catalogs-assets-pro.s3.amazonaws.com/multipanel/images/2026/07/23/iXpBaEJVQv8seoXI4KYs7tYIyfgqbPwkQeHW0TS2.jpeg" alt="Catálogo LEONISA ALIADOS" class="cover-img rounded-t-3xl shadow-inner" onerror="this.onerror=null; this.parentNode.innerHTML='&lt;div class=\'cover-img flex items-center justify-center bg-orange-100 rounded-t-3xl text-orange-400 font-bold\'&gt;&lt;i class=\'fas fa-book-open text-3xl\'&gt;&lt;/i&gt;&lt;/div&gt;'">
+                            <div class="px-2 pt-2.5 pb-1 flex items-center justify-center min-h-[44px]">
+                                <h3 class="font-extrabold text-slate-800 text-[11px] sm:text-xs leading-tight uppercase tracking-wider line-clamp-2">LEONISA ALIADOS</h3>
+                            </div>
+                        </div>
+                        <div class="px-3 pb-3">
+                            <div class="bg-white/90 py-1.5 rounded-full text-[10px] font-extrabold text-slate-600 uppercase tracking-widest shadow-sm">
+                                CIERRE: 14 SEP
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+                    <div onclick="window.open('https://catalogo.yanbal.com/catalogodigital/es/co/2026/10/oficial/1924838953', '_blank')" data-id="1" class="magazine-card bg-pink-50 rounded-[32px] text-center shadow-sm cursor-pointer flex flex-col justify-between border border-black/5 overflow-hidden relative">
+                        
+                        <div class="flex-grow flex flex-col justify-start">
+                            <img src="https://nuevasrevistas.com/revistas/co/yanbal/2026_catalogo_10/1.webp" alt="Catálogo Yanbal" class="cover-img rounded-t-3xl shadow-inner" onerror="this.onerror=null; this.parentNode.innerHTML='&lt;div class=\'cover-img flex items-center justify-center bg-orange-100 rounded-t-3xl text-orange-400 font-bold\'&gt;&lt;i class=\'fas fa-book-open text-3xl\'&gt;&lt;/i&gt;&lt;/div&gt;'">
+                            <div class="px-2 pt-2.5 pb-1 flex items-center justify-center min-h-[44px]">
+                                <h3 class="font-extrabold text-slate-800 text-[11px] sm:text-xs leading-tight uppercase tracking-wider line-clamp-2">Yanbal</h3>
+                            </div>
+                        </div>
+                        <div class="px-3 pb-3">
+                            <div class="bg-white/90 py-1.5 rounded-full text-[10px] font-extrabold text-slate-600 uppercase tracking-widest shadow-sm">
+                                CIERRE: 17 SEP
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+                    <div onclick="window.open('https://catalogo.carmel.com.co/2026c14/c14ed01-2026/?page=1', '_blank')" data-id="5" class="magazine-card bg-purple-50 rounded-[32px] text-center shadow-sm cursor-pointer flex flex-col justify-between border border-black/5 overflow-hidden relative">
+                        <div class="absolute top-3 right-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-black text-[10px] px-3 py-1 rounded-full shadow-lg animate-badge tracking-wider border border-amber-200/50 flex items-center gap-1 z-20">
+                        <i class="fas fa-sparkles"></i> ✨ ¡NUEVA!
+                    </div>
+                        <div class="flex-grow flex flex-col justify-start">
+                            <img src="https://nuevasrevistas.com/revistas/co/carmel/2026_catalogo_14_2/1.webp" alt="Catálogo Carmel" class="cover-img rounded-t-3xl shadow-inner" onerror="this.onerror=null; this.parentNode.innerHTML='&lt;div class=\'cover-img flex items-center justify-center bg-orange-100 rounded-t-3xl text-orange-400 font-bold\'&gt;&lt;i class=\'fas fa-book-open text-3xl\'&gt;&lt;/i&gt;&lt;/div&gt;'">
+                            <div class="px-2 pt-2.5 pb-1 flex items-center justify-center min-h-[44px]">
+                                <h3 class="font-extrabold text-slate-800 text-[11px] sm:text-xs leading-tight uppercase tracking-wider line-clamp-2">Carmel</h3>
+                            </div>
+                        </div>
+                        <div class="px-3 pb-3">
+                            <div class="bg-white/90 py-1.5 rounded-full text-[10px] font-extrabold text-amber-600 uppercase tracking-widest shadow-sm">
+                                CIERRE: POR DEFINIR
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+                    <div onclick="window.open('https://catalogo.loguin.com.co/2026c14/c14ed01-2026/?page=1', '_blank')" data-id="4" class="magazine-card bg-pink-50 rounded-[32px] text-center shadow-sm cursor-pointer flex flex-col justify-between border border-black/5 overflow-hidden relative">
+                        <div class="absolute top-3 right-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-black text-[10px] px-3 py-1 rounded-full shadow-lg animate-badge tracking-wider border border-amber-200/50 flex items-center gap-1 z-20">
+                        <i class="fas fa-sparkles"></i> ✨ ¡NUEVA!
+                    </div>
+                        <div class="flex-grow flex flex-col justify-start">
+                            <img src="https://nuevasrevistas.com/revistas/co/loguin/2026_catalogo_14/1.webp" alt="Catálogo Loguin" class="cover-img rounded-t-3xl shadow-inner" onerror="this.onerror=null; this.parentNode.innerHTML='&lt;div class=\'cover-img flex items-center justify-center bg-orange-100 rounded-t-3xl text-orange-400 font-bold\'&gt;&lt;i class=\'fas fa-book-open text-3xl\'&gt;&lt;/i&gt;&lt;/div&gt;'">
+                            <div class="px-2 pt-2.5 pb-1 flex items-center justify-center min-h-[44px]">
+                                <h3 class="font-extrabold text-slate-800 text-[11px] sm:text-xs leading-tight uppercase tracking-wider line-clamp-2">Loguin</h3>
+                            </div>
+                        </div>
+                        <div class="px-3 pb-3">
+                            <div class="bg-white/90 py-1.5 rounded-full text-[10px] font-extrabold text-amber-600 uppercase tracking-widest shadow-sm">
+                                CIERRE: POR DEFINIR
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+                    <div onclick="window.open('https://catalogo.pacifika.com.co/2026c14/c14ed01-2026/?page=1', '_blank')" data-id="2" class="magazine-card bg-purple-50 rounded-[32px] text-center shadow-sm cursor-pointer flex flex-col justify-between border border-black/5 overflow-hidden relative">
+                        <div class="absolute top-3 right-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-black text-[10px] px-3 py-1 rounded-full shadow-lg animate-badge tracking-wider border border-amber-200/50 flex items-center gap-1 z-20">
+                        <i class="fas fa-sparkles"></i> ✨ ¡NUEVA!
+                    </div>
+                        <div class="flex-grow flex flex-col justify-start">
+                            <img src="https://nuevasrevistas.com/revistas/co/pacifika/2026_catalogo_14/1.webp" alt="Catálogo Pacifika" class="cover-img rounded-t-3xl shadow-inner" onerror="this.onerror=null; this.parentNode.innerHTML='&lt;div class=\'cover-img flex items-center justify-center bg-orange-100 rounded-t-3xl text-orange-400 font-bold\'&gt;&lt;i class=\'fas fa-book-open text-3xl\'&gt;&lt;/i&gt;&lt;/div&gt;'">
+                            <div class="px-2 pt-2.5 pb-1 flex items-center justify-center min-h-[44px]">
+                                <h3 class="font-extrabold text-slate-800 text-[11px] sm:text-xs leading-tight uppercase tracking-wider line-clamp-2">Pacifika</h3>
+                            </div>
+                        </div>
+                        <div class="px-3 pb-3">
+                            <div class="bg-white/90 py-1.5 rounded-full text-[10px] font-extrabold text-amber-600 uppercase tracking-widest shadow-sm">
+                                CIERRE: POR DEFINIR
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
         
         <div id="emptyState" class="hidden text-center py-20 text-orange-400 bg-white/50 rounded-3xl border border-dashed border-orange-200">
             <i class="fas fa-box-open text-5xl mb-4 opacity-50"></i>
@@ -82,7 +302,7 @@
         </div>
     </main>
 
-    <!-- Pie de Página Optimizado -->
+    <!-- Pie de Página -->
     <footer class="bg-white border-t border-orange-100 py-12 text-center">
         <div class="brand-title text-3xl text-orange-400 font-bold mb-2">Sol</div>
         <p class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-8 italic">Trayectoria y confianza desde 2004</p>
@@ -106,18 +326,18 @@
         </div>
     </footer>
 
-    <!-- Botón Flotante de Ayuda Rápida -->
-    <button id="helpFloatingBtn" class="fixed bottom-6 left-6 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-4 py-3 rounded-full shadow-lg z-40 transition-all hover:scale-105 active:scale-95 flex items-center gap-2 text-sm">
-        <i class="fas fa-question-circle text-yellow-200"></i>
-        <span class="font-semibold">💡 ¿Necesitas Ayuda?</span>
+    <!-- Botón Flotante de Ayuda Rápida (Ubicado en la esquina inferior derecha) -->
+    <button id="helpFloatingBtn" class="fixed bottom-6 right-6 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-5 py-3.5 rounded-full shadow-xl z-40 transition-all hover:scale-105 active:scale-95 flex items-center gap-2 text-sm border border-amber-300/30">
+        <i class="fas fa-question-circle text-yellow-200 text-base"></i>
+        <span class="font-bold tracking-wide">💡 ¿Necesitas Ayuda?</span>
     </button>
 
-    <!-- Centro de Ayuda (Preguntas Frecuentes Ajustadas) -->
-    <div id="helpModalWindow" class="hidden fixed bottom-24 left-6 w-[90%] sm:w-[380px] max-h-[80vh] bg-white border border-orange-100 rounded-3xl shadow-2xl z-50 flex flex-col overflow-hidden transition-all duration-300">
+    <!-- Centro de Ayuda (Despliega sobre el botón flotante en la derecha) -->
+    <div id="helpModalWindow" class="hidden fixed bottom-24 right-4 sm:right-6 w-[92%] sm:w-[380px] max-h-[80vh] bg-white border border-orange-100 rounded-3xl shadow-2xl z-50 flex flex-col overflow-hidden transition-all duration-300">
         <div class="bg-gradient-to-r from-amber-400 to-orange-500 p-4 text-white flex justify-between items-center shadow-md">
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2.5">
                 <div class="bg-white/20 p-2 rounded-xl">
-                    <i class="fas fa-book-open text-yellow-200"></i>
+                    <i class="fas fa-book-open text-yellow-200 text-base"></i>
                 </div>
                 <div>
                     <h4 class="font-bold text-sm">Centro de Ayuda Sol</h4>
@@ -130,12 +350,11 @@
         </div>
 
         <div class="p-4 overflow-y-auto space-y-3 bg-orange-50/10 text-xs">
-            <div class="bg-white border border-orange-50 p-3 rounded-2xl text-slate-700 shadow-sm">
-                <p class="font-bold text-orange-600 mb-1"><i class="fas fa-sun mr-1"></i> ¡Bienvenid@ a Sol Catálogos!</p>
-                Toca cualquiera de las siguientes preguntas para resolver tus dudas:
+            <div class="bg-white border border-orange-50 p-3.5 rounded-2xl text-slate-700 shadow-sm">
+                <p class="font-bold text-orange-600 mb-1 flex items-center gap-1.5"><i class="fas fa-sun text-amber-500"></i> ¡Bienvenid@ a Sol Catálogos!</p>
+                Toca cualquiera de las preguntas para resolver tus dudas:
             </div>
 
-            <!-- Pregunta 1 -->
             <button onclick="showHelpAnswer(1)" class="w-full text-left bg-white hover:bg-orange-50 border border-orange-100 p-3 rounded-2xl shadow-sm text-slate-700 font-medium transition flex items-center justify-between">
                 <span>🛍️ ¿Cómo hago y envío mi pedido?</span>
                 <i class="fas fa-chevron-down text-orange-400 text-[10px]"></i>
@@ -146,7 +365,6 @@
                 <p>3. Envía tus capturas directamente a tu asesora asignada.</p>
             </div>
 
-            <!-- Pregunta 2 -->
             <button onclick="showHelpAnswer(2)" class="w-full text-left bg-white hover:bg-orange-50 border border-orange-100 p-3 rounded-2xl shadow-sm text-slate-700 font-medium transition flex items-center justify-between">
                 <span>⏰ ¿Qué pasa si una campaña dice "Cerrada"?</span>
                 <i class="fas fa-chevron-down text-orange-400 text-[10px]"></i>
@@ -155,7 +373,6 @@
                 Indica que el plazo de esa edición ya venció. Solo debes esperar a que tu asesora publique la nueva campaña y el catálogo se habilitará de nuevo automáticamente. ¡Explora las demás marcas activas!
             </div>
 
-            <!-- Pregunta 3 (Pagos y Acuerdos) -->
             <button onclick="showHelpAnswer(3)" class="w-full text-left bg-white hover:bg-orange-50 border border-orange-100 p-3 rounded-2xl shadow-sm text-slate-700 font-medium transition flex items-center justify-between">
                 <span>💳 ¿Cómo funcionan los pagos y envíos?</span>
                 <i class="fas fa-chevron-down text-orange-400 text-[10px]"></i>
@@ -203,7 +420,6 @@
             
             <div class="p-4 md:p-6 overflow-y-auto flex-grow flex flex-col gap-6 hide-scrollbar text-slate-200">
                 
-                <!-- Ajustes Generales -->
                 <div class="bg-slate-950/40 p-4 rounded-2xl border border-slate-800">
                     <h4 class="font-medium text-orange-400 mb-4 flex items-center gap-2 text-sm md:text-base"><i class="fas fa-wallet"></i> Datos de Contacto, Pagos y Clave</h4>
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -231,7 +447,6 @@
                     </div>
                 </div>
 
-                <!-- Botones de Acción Rápida: Reordenar por fecha y Descarga -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="bg-slate-950/60 p-4 rounded-2xl border border-slate-800 flex items-center justify-between">
                         <div>
@@ -259,18 +474,17 @@
                 </div>
 
                 <div class="flex flex-col lg:flex-row gap-6">
-                    <!-- Formulario de Agregar Revista -->
                     <div class="w-full lg:w-1/3">
                         <div class="bg-slate-950/40 p-5 rounded-2xl border border-slate-800/80">
                             <h4 class="font-medium mb-4 text-emerald-400 flex items-center gap-2 text-sm md:text-base"><i class="fas fa-plus-circle"></i> Nueva Revista</h4>
                             <form id="addMagazineForm" class="space-y-4">
                                 <div>
                                     <label class="block text-[10px] font-semibold text-slate-400 mb-1.5 uppercase">Nombre de la revista</label>
-                                    <input type="text" id="newMagName" required placeholder="Ej: Yanbal" class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-orange-500">
+                                    <input type="text" id="newMagName" required="" placeholder="Ej: Yanbal" class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-orange-500">
                                 </div>
                                 <div>
-                                    <label class="block text-[10px] font-semibold text-slate-400 mb-1.5 uppercase">Cierre (Ej: 07 SEP, 14 SEP, 17 SEP)</label>
-                                    <input type="text" id="newMagDate" required placeholder="Ej: 07 SEP" class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-orange-500">
+                                    <label class="block text-[10px] font-semibold text-slate-400 mb-1.5 uppercase">Cierre (Ej: 07 SEP, o déjalo en blanco / NUEVA)</label>
+                                    <input type="text" id="newMagDate" placeholder="Ej: 07 SEP o NUEVA" class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-orange-500">
                                 </div>
                                 <div>
                                     <label class="block text-[10px] font-semibold text-slate-400 mb-1.5 uppercase">URL Foto de Portada (Opcional)</label>
@@ -283,12 +497,386 @@
                         </div>
                     </div>
 
-                    <!-- Lista de Edición -->
                     <div class="w-full lg:w-2/3 bg-slate-950/20 p-5 rounded-2xl border border-slate-800/50">
                         <h4 class="font-medium mb-4 text-orange-400 flex items-center gap-2 text-sm md:text-base"><i class="fas fa-edit"></i> Configurar Enlaces, Portadas y Cierres</h4>
                         <div id="adminManageList" class="space-y-4 max-h-[45vh] overflow-y-auto pr-1">
-                            <!-- Inyectado dinámicamente -->
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl flex flex-col gap-3 shadow-md">
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                        <span class="text-sm font-bold text-slate-200 uppercase">Leonisa</span>
+                        <span class="text-[9px] text-slate-500 uppercase bg-slate-950 px-2 py-0.5 rounded-md">ID: 3</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Catálogo</span>
+                            <input type="text" id="link-3" value="https://catalogo.negocioleonisa.com/CO/CAT/c14/LEONISA_CO14_2026_PRINCIPAL/?page=1" placeholder="https://..." class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
                         </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Cierre (o vacío)</span>
+                            <input type="text" id="date-3" value="14 SEP" placeholder="10 MAY o NUEVA" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Portada</span>
+                            <input type="text" id="cover-3" value="https://leonisa-catalogs-assets-pro.s3.amazonaws.com/multipanel/images/2026/08/19/UmkAIEyQF9saKAWiEAan3qKoqset8nBES25erxHW.png" placeholder="https://enlace-imagen.jpg" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-2 mt-1">
+                        <button onclick="updateCatalog(3)" class="bg-orange-500 hover:bg-orange-400 text-white px-4 py-1.5 rounded-xl text-xs transition flex items-center gap-1.5 font-bold shadow" title="Guardar">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+                        <button onclick="triggerDelete(3, 'Leonisa')" class="bg-slate-800 hover:bg-rose-500 hover:text-white text-rose-400 px-3 py-1.5 rounded-xl text-xs transition flex items-center gap-1" title="Eliminar">
+                            <i class="fas fa-trash-alt"></i> Quitar
+                        </button>
+                    </div>
+                </div>
+            
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl flex flex-col gap-3 shadow-md">
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                        <span class="text-sm font-bold text-slate-200 uppercase">Natura</span>
+                        <span class="text-[9px] text-slate-500 uppercase bg-slate-950 px-2 py-0.5 rounded-md">ID: 6</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Catálogo</span>
+                            <input type="text" id="link-6" value="https://encurtador.naturaavon.com/T5z5rtx" placeholder="https://..." class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Cierre (o vacío)</span>
+                            <input type="text" id="date-6" value="14 SEP" placeholder="10 MAY o NUEVA" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Portada</span>
+                            <input type="text" id="cover-6" value="https://co.natura.digital-catalogue.com/co/2026/13/revista/ciclo-13/view/common/data/0001.webp?preventCache=1788185500__v1.0.1__t2.7.1" placeholder="https://enlace-imagen.jpg" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-2 mt-1">
+                        <button onclick="updateCatalog(6)" class="bg-orange-500 hover:bg-orange-400 text-white px-4 py-1.5 rounded-xl text-xs transition flex items-center gap-1.5 font-bold shadow" title="Guardar">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+                        <button onclick="triggerDelete(6, 'Natura')" class="bg-slate-800 hover:bg-rose-500 hover:text-white text-rose-400 px-3 py-1.5 rounded-xl text-xs transition flex items-center gap-1" title="Eliminar">
+                            <i class="fas fa-trash-alt"></i> Quitar
+                        </button>
+                    </div>
+                </div>
+            
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl flex flex-col gap-3 shadow-md">
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                        <span class="text-sm font-bold text-slate-200 uppercase">Avon</span>
+                        <span class="text-[9px] text-slate-500 uppercase bg-slate-950 px-2 py-0.5 rounded-md">ID: 7</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Catálogo</span>
+                            <input type="text" id="link-7" value="https://short.natura.com/ZL0rv9P" placeholder="https://..." class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Cierre (o vacío)</span>
+                            <input type="text" id="date-7" value="14 SEP" placeholder="10 MAY o NUEVA" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Portada</span>
+                            <input type="text" id="cover-7" value="https://co.natura-avon.digital-catalogue.com/co/2026/13/revista/avon-ciclo-13/view/common/data/0001.webp?preventCache=1787782093__v1.0.1__t2.7.1" placeholder="https://enlace-imagen.jpg" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-2 mt-1">
+                        <button onclick="updateCatalog(7)" class="bg-orange-500 hover:bg-orange-400 text-white px-4 py-1.5 rounded-xl text-xs transition flex items-center gap-1.5 font-bold shadow" title="Guardar">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+                        <button onclick="triggerDelete(7, 'Avon')" class="bg-slate-800 hover:bg-rose-500 hover:text-white text-rose-400 px-3 py-1.5 rounded-xl text-xs transition flex items-center gap-1" title="Eliminar">
+                            <i class="fas fa-trash-alt"></i> Quitar
+                        </button>
+                    </div>
+                </div>
+            
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl flex flex-col gap-3 shadow-md">
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                        <span class="text-sm font-bold text-slate-200 uppercase">Esika</span>
+                        <span class="text-[9px] text-slate-500 uppercase bg-slate-950 px-2 py-0.5 rounded-md">ID: 9</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Catálogo</span>
+                            <input type="text" id="link-9" value="https://catalogo.somosbelcorp.com/co/SolCastrillo1/esika/pages/1" placeholder="https://..." class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Cierre (o vacío)</span>
+                            <input type="text" id="date-9" value="14 SEP" placeholder="10 MAY o NUEVA" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Portada</span>
+                            <input type="text" id="cover-9" value="https://nuevasrevistas.com/revistas/co/esika/2026_catalogo_14/1.webp" placeholder="https://enlace-imagen.jpg" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-2 mt-1">
+                        <button onclick="updateCatalog(9)" class="bg-orange-500 hover:bg-orange-400 text-white px-4 py-1.5 rounded-xl text-xs transition flex items-center gap-1.5 font-bold shadow" title="Guardar">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+                        <button onclick="triggerDelete(9, 'Esika')" class="bg-slate-800 hover:bg-rose-500 hover:text-white text-rose-400 px-3 py-1.5 rounded-xl text-xs transition flex items-center gap-1" title="Eliminar">
+                            <i class="fas fa-trash-alt"></i> Quitar
+                        </button>
+                    </div>
+                </div>
+            
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl flex flex-col gap-3 shadow-md">
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                        <span class="text-sm font-bold text-slate-200 uppercase">Cyzone</span>
+                        <span class="text-[9px] text-slate-500 uppercase bg-slate-950 px-2 py-0.5 rounded-md">ID: 10</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Catálogo</span>
+                            <input type="text" id="link-10" value="https://catalogo.somosbelcorp.com/co/SolCastrillo1/cyzone/pages/1" placeholder="https://..." class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Cierre (o vacío)</span>
+                            <input type="text" id="date-10" value="14 SEP" placeholder="10 MAY o NUEVA" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Portada</span>
+                            <input type="text" id="cover-10" value="https://nuevasrevistas.com/revistas/co/cyzone/2026_catalogo_14/1.webp" placeholder="https://enlace-imagen.jpg" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-2 mt-1">
+                        <button onclick="updateCatalog(10)" class="bg-orange-500 hover:bg-orange-400 text-white px-4 py-1.5 rounded-xl text-xs transition flex items-center gap-1.5 font-bold shadow" title="Guardar">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+                        <button onclick="triggerDelete(10, 'Cyzone')" class="bg-slate-800 hover:bg-rose-500 hover:text-white text-rose-400 px-3 py-1.5 rounded-xl text-xs transition flex items-center gap-1" title="Eliminar">
+                            <i class="fas fa-trash-alt"></i> Quitar
+                        </button>
+                    </div>
+                </div>
+            
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl flex flex-col gap-3 shadow-md">
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                        <span class="text-sm font-bold text-slate-200 uppercase">L'Bel</span>
+                        <span class="text-[9px] text-slate-500 uppercase bg-slate-950 px-2 py-0.5 rounded-md">ID: 11</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Catálogo</span>
+                            <input type="text" id="link-11" value="https://catalogo.somosbelcorp.com/co/SolCastrillo1/lbel/pages/1" placeholder="https://..." class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Cierre (o vacío)</span>
+                            <input type="text" id="date-11" value="14 SEP" placeholder="10 MAY o NUEVA" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Portada</span>
+                            <input type="text" id="cover-11" value="https://nuevasrevistas.com/revistas/co/lbel/2026_catalogo_14/1.webp" placeholder="https://enlace-imagen.jpg" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-2 mt-1">
+                        <button onclick="updateCatalog(11)" class="bg-orange-500 hover:bg-orange-400 text-white px-4 py-1.5 rounded-xl text-xs transition flex items-center gap-1.5 font-bold shadow" title="Guardar">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+                        <button onclick="triggerDelete(11, 'L\'Bel')" class="bg-slate-800 hover:bg-rose-500 hover:text-white text-rose-400 px-3 py-1.5 rounded-xl text-xs transition flex items-center gap-1" title="Eliminar">
+                            <i class="fas fa-trash-alt"></i> Quitar
+                        </button>
+                    </div>
+                </div>
+            
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl flex flex-col gap-3 shadow-md">
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                        <span class="text-sm font-bold text-slate-200 uppercase">LEONISA SHAPEWEAR</span>
+                        <span class="text-[9px] text-slate-500 uppercase bg-slate-950 px-2 py-0.5 rounded-md">ID: 1788657977047</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Catálogo</span>
+                            <input type="text" id="link-1788657977047" value="https://catalogo.negocioleonisa.com/CO/CAT/c14/LEONISA_CO14_2026_SHAPEWEAR/?page=1" placeholder="https://..." class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Cierre (o vacío)</span>
+                            <input type="text" id="date-1788657977047" value="14 SEP" placeholder="10 MAY o NUEVA" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Portada</span>
+                            <input type="text" id="cover-1788657977047" value="https://leonisa-catalogs-assets-pro.s3.amazonaws.com/multipanel/images/2026/08/19/KeIt61uc5doyMOwSJFzdlb947ZP8Vv3Vdi5kObyt.png" placeholder="https://enlace-imagen.jpg" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-2 mt-1">
+                        <button onclick="updateCatalog(1788657977047)" class="bg-orange-500 hover:bg-orange-400 text-white px-4 py-1.5 rounded-xl text-xs transition flex items-center gap-1.5 font-bold shadow" title="Guardar">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+                        <button onclick="triggerDelete(1788657977047, 'LEONISA SHAPEWEAR')" class="bg-slate-800 hover:bg-rose-500 hover:text-white text-rose-400 px-3 py-1.5 rounded-xl text-xs transition flex items-center gap-1" title="Eliminar">
+                            <i class="fas fa-trash-alt"></i> Quitar
+                        </button>
+                    </div>
+                </div>
+            
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl flex flex-col gap-3 shadow-md">
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                        <span class="text-sm font-bold text-slate-200 uppercase">LEONISA COMPLEMENTOS</span>
+                        <span class="text-[9px] text-slate-500 uppercase bg-slate-950 px-2 py-0.5 rounded-md">ID: 1788658075476</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Catálogo</span>
+                            <input type="text" id="link-1788658075476" value="https://catalogo.negocioleonisa.com/CO/CAT/c14/LEONISA_CO14_2026_COMPLEMENTOS/?page=1" placeholder="https://..." class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Cierre (o vacío)</span>
+                            <input type="text" id="date-1788658075476" value="14 SEP" placeholder="10 MAY o NUEVA" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Portada</span>
+                            <input type="text" id="cover-1788658075476" value="https://leonisa-catalogs-assets-pro.s3.amazonaws.com/multipanel/images/2026/08/19/wWmyFtMggunIVV9kSsS0L52tHLBCDhx86AFSXGpr.png" placeholder="https://enlace-imagen.jpg" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-2 mt-1">
+                        <button onclick="updateCatalog(1788658075476)" class="bg-orange-500 hover:bg-orange-400 text-white px-4 py-1.5 rounded-xl text-xs transition flex items-center gap-1.5 font-bold shadow" title="Guardar">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+                        <button onclick="triggerDelete(1788658075476, 'LEONISA COMPLEMENTOS')" class="bg-slate-800 hover:bg-rose-500 hover:text-white text-rose-400 px-3 py-1.5 rounded-xl text-xs transition flex items-center gap-1" title="Eliminar">
+                            <i class="fas fa-trash-alt"></i> Quitar
+                        </button>
+                    </div>
+                </div>
+            
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl flex flex-col gap-3 shadow-md">
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                        <span class="text-sm font-bold text-slate-200 uppercase">LEONISA ALIADOS</span>
+                        <span class="text-[9px] text-slate-500 uppercase bg-slate-950 px-2 py-0.5 rounded-md">ID: 1788658125975</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Catálogo</span>
+                            <input type="text" id="link-1788658125975" value="https://catalogo.negocioleonisa.com/CO/CAT/c14/LEONISA_CO14_2026_ALIADOS/?page=1" placeholder="https://..." class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Cierre (o vacío)</span>
+                            <input type="text" id="date-1788658125975" value="14 SEP" placeholder="10 MAY o NUEVA" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Portada</span>
+                            <input type="text" id="cover-1788658125975" value="https://leonisa-catalogs-assets-pro.s3.amazonaws.com/multipanel/images/2026/07/23/iXpBaEJVQv8seoXI4KYs7tYIyfgqbPwkQeHW0TS2.jpeg" placeholder="https://enlace-imagen.jpg" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-2 mt-1">
+                        <button onclick="updateCatalog(1788658125975)" class="bg-orange-500 hover:bg-orange-400 text-white px-4 py-1.5 rounded-xl text-xs transition flex items-center gap-1.5 font-bold shadow" title="Guardar">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+                        <button onclick="triggerDelete(1788658125975, 'LEONISA ALIADOS')" class="bg-slate-800 hover:bg-rose-500 hover:text-white text-rose-400 px-3 py-1.5 rounded-xl text-xs transition flex items-center gap-1" title="Eliminar">
+                            <i class="fas fa-trash-alt"></i> Quitar
+                        </button>
+                    </div>
+                </div>
+            
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl flex flex-col gap-3 shadow-md">
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                        <span class="text-sm font-bold text-slate-200 uppercase">Yanbal</span>
+                        <span class="text-[9px] text-slate-500 uppercase bg-slate-950 px-2 py-0.5 rounded-md">ID: 1</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Catálogo</span>
+                            <input type="text" id="link-1" value="https://catalogo.yanbal.com/catalogodigital/es/co/2026/10/oficial/1924838953" placeholder="https://..." class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Cierre (o vacío)</span>
+                            <input type="text" id="date-1" value="17 SEP" placeholder="10 MAY o NUEVA" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Portada</span>
+                            <input type="text" id="cover-1" value="https://nuevasrevistas.com/revistas/co/yanbal/2026_catalogo_10/1.webp" placeholder="https://enlace-imagen.jpg" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-2 mt-1">
+                        <button onclick="updateCatalog(1)" class="bg-orange-500 hover:bg-orange-400 text-white px-4 py-1.5 rounded-xl text-xs transition flex items-center gap-1.5 font-bold shadow" title="Guardar">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+                        <button onclick="triggerDelete(1, 'Yanbal')" class="bg-slate-800 hover:bg-rose-500 hover:text-white text-rose-400 px-3 py-1.5 rounded-xl text-xs transition flex items-center gap-1" title="Eliminar">
+                            <i class="fas fa-trash-alt"></i> Quitar
+                        </button>
+                    </div>
+                </div>
+            
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl flex flex-col gap-3 shadow-md">
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                        <span class="text-sm font-bold text-slate-200 uppercase">Carmel</span>
+                        <span class="text-[9px] text-slate-500 uppercase bg-slate-950 px-2 py-0.5 rounded-md">ID: 5</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Catálogo</span>
+                            <input type="text" id="link-5" value="https://catalogo.carmel.com.co/2026c14/c14ed01-2026/?page=1" placeholder="https://..." class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Cierre (o vacío)</span>
+                            <input type="text" id="date-5" value="NUEVA" placeholder="10 MAY o NUEVA" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Portada</span>
+                            <input type="text" id="cover-5" value="https://nuevasrevistas.com/revistas/co/carmel/2026_catalogo_14_2/1.webp" placeholder="https://enlace-imagen.jpg" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-2 mt-1">
+                        <button onclick="updateCatalog(5)" class="bg-orange-500 hover:bg-orange-400 text-white px-4 py-1.5 rounded-xl text-xs transition flex items-center gap-1.5 font-bold shadow" title="Guardar">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+                        <button onclick="triggerDelete(5, 'Carmel')" class="bg-slate-800 hover:bg-rose-500 hover:text-white text-rose-400 px-3 py-1.5 rounded-xl text-xs transition flex items-center gap-1" title="Eliminar">
+                            <i class="fas fa-trash-alt"></i> Quitar
+                        </button>
+                    </div>
+                </div>
+            
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl flex flex-col gap-3 shadow-md">
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                        <span class="text-sm font-bold text-slate-200 uppercase">Loguin</span>
+                        <span class="text-[9px] text-slate-500 uppercase bg-slate-950 px-2 py-0.5 rounded-md">ID: 4</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Catálogo</span>
+                            <input type="text" id="link-4" value="https://catalogo.loguin.com.co/2026c14/c14ed01-2026/?page=1" placeholder="https://..." class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Cierre (o vacío)</span>
+                            <input type="text" id="date-4" value="NUEVA" placeholder="10 MAY o NUEVA" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Portada</span>
+                            <input type="text" id="cover-4" value="https://nuevasrevistas.com/revistas/co/loguin/2026_catalogo_14/1.webp" placeholder="https://enlace-imagen.jpg" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-2 mt-1">
+                        <button onclick="updateCatalog(4)" class="bg-orange-500 hover:bg-orange-400 text-white px-4 py-1.5 rounded-xl text-xs transition flex items-center gap-1.5 font-bold shadow" title="Guardar">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+                        <button onclick="triggerDelete(4, 'Loguin')" class="bg-slate-800 hover:bg-rose-500 hover:text-white text-rose-400 px-3 py-1.5 rounded-xl text-xs transition flex items-center gap-1" title="Eliminar">
+                            <i class="fas fa-trash-alt"></i> Quitar
+                        </button>
+                    </div>
+                </div>
+            
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl flex flex-col gap-3 shadow-md">
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                        <span class="text-sm font-bold text-slate-200 uppercase">Pacifika</span>
+                        <span class="text-[9px] text-slate-500 uppercase bg-slate-950 px-2 py-0.5 rounded-md">ID: 2</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Catálogo</span>
+                            <input type="text" id="link-2" value="https://catalogo.pacifika.com.co/2026c14/c14ed01-2026/?page=1" placeholder="https://..." class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Cierre (o vacío)</span>
+                            <input type="text" id="date-2" value="NUEVA" placeholder="10 MAY o NUEVA" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Portada</span>
+                            <input type="text" id="cover-2" value="https://nuevasrevistas.com/revistas/co/pacifika/2026_catalogo_14/1.webp" placeholder="https://enlace-imagen.jpg" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-2 mt-1">
+                        <button onclick="updateCatalog(2)" class="bg-orange-500 hover:bg-orange-400 text-white px-4 py-1.5 rounded-xl text-xs transition flex items-center gap-1.5 font-bold shadow" title="Guardar">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+                        <button onclick="triggerDelete(2, 'Pacifika')" class="bg-slate-800 hover:bg-rose-500 hover:text-white text-rose-400 px-3 py-1.5 rounded-xl text-xs transition flex items-center gap-1" title="Eliminar">
+                            <i class="fas fa-trash-alt"></i> Quitar
+                        </button>
+                    </div>
+                </div>
+            </div>
                     </div>
                 </div>
 
@@ -309,134 +897,137 @@
     </div>
 
     <script>
-        // --- 1. TUS 13 CATÁLOGOS CON PRE-ORDEN CRONOLÓGICO Y COLORES INTERCALADOS ---
         const defaultMagazines = [
-            {
-                "id": 2,
-                "name": "Pacifika",
-                "deadline": "07 SEP",
-                "bg": "bg-purple-50",
-                "link": "https://catalogo.pacifika.com.co/2026c13/c13ed01-2026/?page=1",
-                "cover": "https://nuevasrevistas.com/revistas/co/pacifika/2026_catalogo_13/1.webp"
-            },
-            {
-                "id": 4,
-                "name": "Loguin",
-                "deadline": "07 SEP",
-                "bg": "bg-pink-50",
-                "link": "https://catalogo.loguin.com.co/2026c13/c13ed01-2026/?page=1",
-                "cover": "https://nuevasrevistas.com/revistas/co/loguin/2026_catalogo_13/1.webp"
-            },
-            {
-                "id": 5,
-                "name": "Carmel",
-                "deadline": "07 SEP",
-                "bg": "bg-purple-50",
-                "link": "https://catalogo.carmel.com.co/2026c13/c13ed01-2026/?page=1",
-                "cover": "https://nuevasrevistas.com/revistas/co/carmel/2026_catalogo_13/1.webp"
-            },
-            {
-                "id": 3,
-                "name": "Leonisa",
-                "deadline": "14 SEP",
-                "bg": "bg-pink-50",
-                "link": "https://catalogo.negocioleonisa.com/CO/CAT/c14/LEONISA_CO14_2026_PRINCIPAL/?page=1",
-                "cover": "https://leonisa-catalogs-assets-pro.s3.amazonaws.com/multipanel/images/2026/08/19/UmkAIEyQF9saKAWiEAan3qKoqset8nBES25erxHW.png"
-            },
-            {
-                "id": 6,
-                "name": "Natura",
-                "deadline": "14 SEP",
-                "bg": "bg-purple-50",
-                "link": "https://encurtador.naturaavon.com/T5z5rtx",
-                "cover": "https://co.natura.digital-catalogue.com/co/2026/13/revista/ciclo-13/view/common/data/0001.webp?preventCache=1788185500__v1.0.1__t2.7.1"
-            },
-            {
-                "id": 7,
-                "name": "Avon",
-                "deadline": "14 SEP",
-                "bg": "bg-pink-50",
-                "link": "https://short.natura.com/ZL0rv9P",
-                "cover": "https://co.natura-avon.digital-catalogue.com/co/2026/13/revista/avon-ciclo-13/view/common/data/0001.webp?preventCache=1787782093__v1.0.1__t2.7.1"
-            },
-            {
-                "id": 9,
-                "name": "Esika",
-                "deadline": "14 SEP",
-                "bg": "bg-purple-50",
-                "link": "https://catalogo.somosbelcorp.com/co/SolCastrillo1/esika/pages/1",
-                "cover": "https://nuevasrevistas.com/revistas/co/esika/2026_catalogo_14/1.webp"
-            },
-            {
-                "id": 10,
-                "name": "Cyzone",
-                "deadline": "14 SEP",
-                "bg": "bg-pink-50",
-                "link": "https://catalogo.somosbelcorp.com/co/SolCastrillo1/cyzone/pages/1",
-                "cover": "https://nuevasrevistas.com/revistas/co/cyzone/2026_catalogo_14/1.webp"
-            },
-            {
-                "id": 11,
-                "name": "L'Bel",
-                "deadline": "14 SEP",
-                "bg": "bg-purple-50",
-                "link": "https://catalogo.somosbelcorp.com/co/SolCastrillo1/lbel/pages/1",
-                "cover": "https://nuevasrevistas.com/revistas/co/lbel/2026_catalogo_14/1.webp"
-            },
-            {
-                "id": 1788657977047,
-                "name": "LEONISA SHAPEWEAR",
-                "deadline": "14 SEP",
-                "bg": "bg-pink-50",
-                "link": "https://catalogo.negocioleonisa.com/CO/CAT/c14/LEONISA_CO14_2026_SHAPEWEAR/?page=1",
-                "cover": "https://leonisa-catalogs-assets-pro.s3.amazonaws.com/multipanel/images/2026/08/19/KeIt61uc5doyMOwSJFzdlb947ZP8Vv3Vdi5kObyt.png"
-            },
-            {
-                "id": 1788658075476,
-                "name": "LEONISA COMPLEMENTOS",
-                "deadline": "14 SEP",
-                "bg": "bg-purple-50",
-                "link": "https://catalogo.negocioleonisa.com/CO/CAT/c14/LEONISA_CO14_2026_COMPLEMENTOS/?page=1",
-                "cover": "https://leonisa-catalogs-assets-pro.s3.amazonaws.com/multipanel/images/2026/08/19/wWmyFtMggunIVV9kSsS0L52tHLBCDhx86AFSXGpr.png"
-            },
-            {
-                "id": 1788658125975,
-                "name": "LEONISA ALIADOS",
-                "deadline": "14 SEP",
-                "bg": "bg-pink-50",
-                "link": "https://catalogo.negocioleonisa.com/CO/CAT/c14/LEONISA_CO14_2026_ALIADOS/?page=1",
-                "cover": "https://leonisa-catalogs-assets-pro.s3.amazonaws.com/multipanel/images/2026/07/23/iXpBaEJVQv8seoXI4KYs7tYIyfgqbPwkQeHW0TS2.jpeg"
-            },
-            {
-                "id": 1,
-                "name": "Yanbal",
-                "deadline": "17 SEP",
-                "bg": "bg-purple-50",
-                "link": "https://catalogo.yanbal.com/catalogodigital/es/co/2026/10/oficial/1924838953",
-                "cover": "https://nuevasrevistas.com/revistas/co/yanbal/2026_catalogo_10/1.webp"
-            }
-        ];
+          {
+                    "id": 3,
+                    "name": "Leonisa",
+                    "deadline": "14 SEP",
+                    "bg": "bg-purple-50",
+                    "link": "https://catalogo.negocioleonisa.com/CO/CAT/c14/LEONISA_CO14_2026_PRINCIPAL/?page=1",
+                    "cover": "https://leonisa-catalogs-assets-pro.s3.amazonaws.com/multipanel/images/2026/08/19/UmkAIEyQF9saKAWiEAan3qKoqset8nBES25erxHW.png"
+          },
+          {
+                    "id": 6,
+                    "name": "Natura",
+                    "deadline": "14 SEP",
+                    "bg": "bg-pink-50",
+                    "link": "https://encurtador.naturaavon.com/T5z5rtx",
+                    "cover": "https://co.natura.digital-catalogue.com/co/2026/13/revista/ciclo-13/view/common/data/0001.webp?preventCache=1788185500__v1.0.1__t2.7.1"
+          },
+          {
+                    "id": 7,
+                    "name": "Avon",
+                    "deadline": "14 SEP",
+                    "bg": "bg-purple-50",
+                    "link": "https://short.natura.com/ZL0rv9P",
+                    "cover": "https://co.natura-avon.digital-catalogue.com/co/2026/13/revista/avon-ciclo-13/view/common/data/0001.webp?preventCache=1787782093__v1.0.1__t2.7.1"
+          },
+          {
+                    "id": 9,
+                    "name": "Esika",
+                    "deadline": "14 SEP",
+                    "bg": "bg-pink-50",
+                    "link": "https://catalogo.somosbelcorp.com/co/SolCastrillo1/esika/pages/1",
+                    "cover": "https://nuevasrevistas.com/revistas/co/esika/2026_catalogo_14/1.webp"
+          },
+          {
+                    "id": 10,
+                    "name": "Cyzone",
+                    "deadline": "14 SEP",
+                    "bg": "bg-purple-50",
+                    "link": "https://catalogo.somosbelcorp.com/co/SolCastrillo1/cyzone/pages/1",
+                    "cover": "https://nuevasrevistas.com/revistas/co/cyzone/2026_catalogo_14/1.webp"
+          },
+          {
+                    "id": 11,
+                    "name": "L'Bel",
+                    "deadline": "14 SEP",
+                    "bg": "bg-pink-50",
+                    "link": "https://catalogo.somosbelcorp.com/co/SolCastrillo1/lbel/pages/1",
+                    "cover": "https://nuevasrevistas.com/revistas/co/lbel/2026_catalogo_14/1.webp"
+          },
+          {
+                    "id": 1788657977047,
+                    "name": "LEONISA SHAPEWEAR",
+                    "deadline": "14 SEP",
+                    "bg": "bg-purple-50",
+                    "link": "https://catalogo.negocioleonisa.com/CO/CAT/c14/LEONISA_CO14_2026_SHAPEWEAR/?page=1",
+                    "cover": "https://leonisa-catalogs-assets-pro.s3.amazonaws.com/multipanel/images/2026/08/19/KeIt61uc5doyMOwSJFzdlb947ZP8Vv3Vdi5kObyt.png"
+          },
+          {
+                    "id": 1788658075476,
+                    "name": "LEONISA COMPLEMENTOS",
+                    "deadline": "14 SEP",
+                    "bg": "bg-pink-50",
+                    "link": "https://catalogo.negocioleonisa.com/CO/CAT/c14/LEONISA_CO14_2026_COMPLEMENTOS/?page=1",
+                    "cover": "https://leonisa-catalogs-assets-pro.s3.amazonaws.com/multipanel/images/2026/08/19/wWmyFtMggunIVV9kSsS0L52tHLBCDhx86AFSXGpr.png"
+          },
+          {
+                    "id": 1788658125975,
+                    "name": "LEONISA ALIADOS",
+                    "deadline": "14 SEP",
+                    "bg": "bg-purple-50",
+                    "link": "https://catalogo.negocioleonisa.com/CO/CAT/c14/LEONISA_CO14_2026_ALIADOS/?page=1",
+                    "cover": "https://leonisa-catalogs-assets-pro.s3.amazonaws.com/multipanel/images/2026/07/23/iXpBaEJVQv8seoXI4KYs7tYIyfgqbPwkQeHW0TS2.jpeg"
+          },
+          {
+                    "id": 1,
+                    "name": "Yanbal",
+                    "deadline": "17 SEP",
+                    "bg": "bg-pink-50",
+                    "link": "https://catalogo.yanbal.com/catalogodigital/es/co/2026/10/oficial/1924838953",
+                    "cover": "https://nuevasrevistas.com/revistas/co/yanbal/2026_catalogo_10/1.webp"
+          },
+          {
+                    "id": 5,
+                    "name": "Carmel",
+                    "deadline": "NUEVA",
+                    "bg": "bg-purple-50",
+                    "link": "https://catalogo.carmel.com.co/2026c14/c14ed01-2026/?page=1",
+                    "cover": "https://nuevasrevistas.com/revistas/co/carmel/2026_catalogo_14_2/1.webp"
+          },
+          {
+                    "id": 4,
+                    "name": "Loguin",
+                    "deadline": "NUEVA",
+                    "bg": "bg-pink-50",
+                    "link": "https://catalogo.loguin.com.co/2026c14/c14ed01-2026/?page=1",
+                    "cover": "https://nuevasrevistas.com/revistas/co/loguin/2026_catalogo_14/1.webp"
+          },
+          {
+                    "id": 2,
+                    "name": "Pacifika",
+                    "deadline": "NUEVA",
+                    "bg": "bg-purple-50",
+                    "link": "https://catalogo.pacifika.com.co/2026c14/c14ed01-2026/?page=1",
+                    "cover": "https://nuevasrevistas.com/revistas/co/pacifika/2026_catalogo_14/1.webp"
+          }
+];
 
         const defaultSettings = {
-            "phone": "573005919059",
-            "paymentText": "Nequi / Llave: 300 591 9059",
-            "paymentFlex": "Pagos y envíos flexibles acordados con asesor.",
-            "pass": "Sol2004"
-        };
+          "phone": "573005919059",
+          "paymentText": "Nequi / Llave: 300 591 9059",
+          "paymentFlex": "Pagos y envíos flexibles acordados con asesor.",
+          "pass": "Sol2004"
+};
 
         let magazines = defaultMagazines;
         let settings = defaultSettings;
         let deleteTargetId = null;
-        const apiKey = ""; 
 
-        // --- 2. SISTEMA DE ORDENAMIENTO Y DETECCIÓN DE CAMPAÑAS VENCIDAS ---
         const monthOrder = {
             'ENE': 0, 'FEB': 1, 'MAR': 2, 'ABR': 3, 'MAY': 4, 'JUN': 5,
             'JUL': 6, 'AGO': 7, 'SEP': 8, 'SET': 8, 'OCT': 9, 'NOV': 10, 'DIC': 11
         };
 
+        function isPendingDate(dateStr) {
+            if (!dateStr || dateStr.trim() === '') return true;
+            const upper = dateStr.toUpperCase().trim();
+            return upper.includes('NUEVA') || upper.includes('POR DEFINIR') || upper.includes('PRONTO') || upper.includes('S/F');
+        }
+
         function parseDeadlineDate(dateStr) {
-            if (!dateStr || dateStr.trim() === '' || dateStr.trim() === 'S/F') return null;
+            if (isPendingDate(dateStr)) return null;
             const clean = dateStr.toUpperCase().trim();
             const parts = clean.match(/(\d{1,2})\s*([A-Z]{3})/);
             if (parts) {
@@ -451,6 +1042,7 @@
         }
 
         function isCampaignExpired(deadlineStr) {
+            if (isPendingDate(deadlineStr)) return false;
             const deadlineDate = parseDeadlineDate(deadlineStr);
             if (!deadlineDate) return false;
             const now = new Date();
@@ -458,6 +1050,7 @@
         }
 
         function parseDeadlineScore(dateStr) {
+            if (isPendingDate(dateStr)) return 8888888888888;
             const d = parseDeadlineDate(dateStr);
             return d ? d.getTime() : 9999999999999;
         }
@@ -479,7 +1072,6 @@
             showNotification('¡Revistas ordenadas por fecha de cierre!', 'success');
         }
 
-        // --- 3. ELEMENTOS DEL DOM ---
         const grid = document.getElementById('magazineGrid');
         const emptyState = document.getElementById('emptyState');
         const adminPanel = document.getElementById('adminPanel');
@@ -508,7 +1100,6 @@
         const cancelPasswordBtn = document.getElementById('cancelPasswordBtn');
         const submitPasswordBtn = document.getElementById('submitPasswordBtn');
 
-        // --- 4. FUNCIONES DE PANTALLA ---
         function renderCatalog() {
             grid.innerHTML = '';
             if (magazines.length === 0) {
@@ -522,10 +1113,12 @@
             
             grid.innerHTML = magazines.map(mag => {
                 const expired = isCampaignExpired(mag.deadline);
+                const pending = isPendingDate(mag.deadline);
                 
                 let clickAction = "";
                 let badgeHtml = "";
                 let cardOpacity = "";
+                let dateDisplay = "";
 
                 if (expired) {
                     clickAction = `onclick="showNotification('Esta campaña ya finalizó. ¡Pronto tendremos nuevas ediciones!', 'error')"`;
@@ -534,11 +1127,25 @@
                         <span class="text-[11px] font-medium text-slate-200">Espera próxima campaña</span>
                     </div>`;
                     cardOpacity = "opacity-75 grayscale-[30%] cursor-not-allowed";
+                    dateDisplay = `CIERRE: ${mag.deadline}`;
                 } else {
                     clickAction = mag.link === '#' || mag.link === '' 
                         ? `onclick="handleLinkClick(event, '${mag.name.replace(/'/g, "\\'")}')"` 
                         : `onclick="window.open('${mag.link}', '_blank')"`;
                     cardOpacity = "cursor-pointer";
+
+                    if (pending) {
+                        dateDisplay = `CIERRE: POR DEFINIR`;
+                    } else {
+                        dateDisplay = `CIERRE: ${mag.deadline}`;
+                    }
+                }
+
+                let newStickerHtml = "";
+                if (pending && !expired) {
+                    newStickerHtml = `<div class="absolute top-3 right-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-black text-[10px] px-3 py-1 rounded-full shadow-lg animate-badge tracking-wider border border-amber-200/50 flex items-center gap-1 z-20">
+                        <i class="fas fa-sparkles"></i> ✨ ¡NUEVA!
+                    </div>`;
                 }
 
                 const coverElement = mag.cover && mag.cover.trim() !== ''
@@ -547,6 +1154,7 @@
 
                 return `
                     <div ${clickAction} data-id="${mag.id}" class="magazine-card ${mag.bg || 'bg-slate-50'} rounded-[32px] text-center shadow-sm ${cardOpacity} flex flex-col justify-between border border-black/5 overflow-hidden relative">
+                        ${newStickerHtml}
                         <div class="flex-grow flex flex-col justify-start">
                             ${coverElement}
                             <div class="px-2 pt-2.5 pb-1 flex items-center justify-center min-h-[44px]">
@@ -554,8 +1162,8 @@
                             </div>
                         </div>
                         <div class="px-3 pb-3">
-                            <div class="bg-white/90 py-1.5 rounded-full text-[10px] font-extrabold ${expired ? 'text-rose-600' : 'text-slate-600'} uppercase tracking-widest shadow-sm">
-                                ${expired ? 'Cerrado' : 'Cierre:'} ${mag.deadline}
+                            <div class="bg-white/90 py-1.5 rounded-full text-[10px] font-extrabold ${expired ? 'text-rose-600' : (pending ? 'text-amber-600' : 'text-slate-600')} uppercase tracking-widest shadow-sm">
+                                ${dateDisplay}
                             </div>
                         </div>
                         ${badgeHtml}
@@ -581,8 +1189,8 @@
                             <input type="text" id="link-${mag.id}" value="${mag.link === '#' ? '' : mag.link}" placeholder="https://..." class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
                         </div>
                         <div class="relative">
-                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Cierre</span>
-                            <input type="text" id="date-${mag.id}" value="${mag.deadline}" placeholder="10 MAY" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
+                            <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Cierre (o vacío)</span>
+                            <input type="text" id="date-${mag.id}" value="${mag.deadline}" placeholder="10 MAY o NUEVA" class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-orange-500 focus:outline-none">
                         </div>
                         <div class="relative">
                             <span class="absolute -top-2 left-2 bg-slate-900 px-1 text-[8px] text-slate-400 font-semibold uppercase">Enlace Portada</span>
@@ -620,7 +1228,6 @@
             showNotification('Ajustes generales actualizados con éxito', 'success');
         }
 
-        // --- 5. ACCIONES DEL PANEL ---
         function handleLinkClick(event, name) {
             event.stopPropagation();
             showNotification(`Configura el enlace de "${name}" en "Gestionar Kiosco" en el pie de página.`, 'error');
@@ -629,7 +1236,7 @@
         addMagazineForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const name = document.getElementById('newMagName').value.trim();
-            const deadline = document.getElementById('newMagDate').value.trim();
+            const deadline = document.getElementById('newMagDate').value.trim() || 'NUEVA';
             const cover = document.getElementById('newMagCover').value.trim();
             const newId = Date.now();
 
@@ -645,7 +1252,7 @@
             sortMagazinesByDeadline();
             updateAllViews(); 
             addMagazineForm.reset();
-            showNotification('¡Catálogo añadido y ordenado según su fecha!', 'success');
+            showNotification('¡Catálogo añadido con éxito!', 'success');
         });
 
         function updateCatalog(id) {
@@ -656,12 +1263,12 @@
             
             if (idx !== -1) {
                 magazines[idx].link = linkInput.value.trim() || '#';
-                magazines[idx].deadline = dateInput.value.trim() || 'S/F';
+                magazines[idx].deadline = dateInput.value.trim() || 'NUEVA';
                 magazines[idx].cover = coverInput.value.trim();
                 
                 sortMagazinesByDeadline();
                 updateAllViews();
-                showNotification('¡Datos guardados y reordenados por fecha!', 'success');
+                showNotification('¡Datos guardados correctamente!', 'success');
             }
         }
 
@@ -715,7 +1322,6 @@
             }, 3000);
         }
 
-        // Control de Despliegue de Preguntas Frecuentes
         function showHelpAnswer(id) {
             const ans = document.getElementById(`answer-${id}`);
             if (ans.classList.contains('hidden')) {
@@ -735,7 +1341,6 @@
             setTimeout(() => helpModalWindow.classList.add('hidden'), 300);
         });
 
-        // Control de Contraseña
         toggleAdminBtn.addEventListener('click', () => {
             passwordModal.classList.remove('hidden');
             setTimeout(() => passwordModal.classList.remove('opacity-0'), 10);
@@ -775,7 +1380,41 @@
             setTimeout(() => adminPanel.classList.add('hidden'), 300); 
         });
 
-        // Inicialización
+        function downloadUpdatedTemplate() {
+            try {
+                let docClone = document.documentElement.cloneNode(true);
+                
+                const cloneAdmin = docClone.querySelector('#adminPanel');
+                if (cloneAdmin) cloneAdmin.className = "hidden fixed top-0 left-0 w-full h-full bg-slate-950/80 backdrop-blur-sm text-white z-50 flex items-center justify-center p-2 md:p-4 transform transition-opacity duration-300 opacity-0";
+                
+                const clonePass = docClone.querySelector('#passwordModal');
+                if (clonePass) clonePass.className = "hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[90] flex items-center justify-center p-4 transition-opacity duration-200 opacity-0";
+
+                const cloneHelp = docClone.querySelector('#helpModalWindow');
+                if (cloneHelp) cloneHelp.className = "hidden fixed bottom-24 right-4 sm:right-6 w-[92%] sm:w-[380px] max-h-[80vh] bg-white border border-orange-100 rounded-3xl shadow-2xl z-50 flex flex-col overflow-hidden transition-all duration-300";
+
+                let htmlContent = "<!DOCTYPE html>\n<html lang=\"es\">\n" + docClone.outerHTML + "\n</html>";
+
+                const magazinesJson = JSON.stringify(magazines, null, 12);
+                htmlContent = htmlContent.replace(/const defaultMagazines\s*=\s*\[[\s\S]*?\];/g, `const defaultMagazines = ${magazinesJson};`);
+
+                const settingsJson = JSON.stringify(settings, null, 12);
+                htmlContent = htmlContent.replace(/const defaultSettings\s*=\s*\{[\s\S]*?\};/g, `const defaultSettings = ${settingsJson};`);
+
+                const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = 'index.html';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                showNotification('¡Archivo index.html descargado con éxito!', 'success');
+            } catch (error) {
+                showNotification('Ocurrió un inconveniente al generar tu archivo.', 'error');
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             sortMagazinesByDeadline();
             updateAllViews();
@@ -799,5 +1438,6 @@
             }
         });
     </script>
-</body>
+
+</body></html>
 </html>
